@@ -26,8 +26,8 @@ export default function OnboardingFirst() {
       {/* Illustration */}
       <View className="flex-1 justify-center items-center">
         <Image
-          source={require("@/assets/images/onboarding1.png")}
-          className=""
+          source={require("@/assets/images/onBoardingOne.png")}
+          className="w-96 h-96"
           resizeMode="contain"
         />
       </View>
