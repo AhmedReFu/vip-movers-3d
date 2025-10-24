@@ -12,10 +12,6 @@ export default function OnboardingFirst() {
           <Text className="text-gray-500 text-2xl font-medium">Skip</Text>
         </TouchableOpacity>
       </View>
-      {/* <View className="absolute top-60 left-10 w-4 h-4 bg-sky-200 rounded-full opacity-60" />
-      <View className="absolute top-80 right-4 w-4 h-4 bg-sky-200 rounded-full opacity-60" />
-      <View className="absolute top-60 left-60 w-3 h-3 bg-sky-200 rounded-full opacity-60" />
-      <View className="absolute top-36 left-20 w-3 h-3 bg-sky-200 rounded-full opacity-60" /> */}
       <View className="flex-1 justify-center items-center">
         <Image
           source={require("@/assets/images/onBoardingOne.png")}
