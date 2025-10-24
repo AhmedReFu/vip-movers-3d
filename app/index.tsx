@@ -1,25 +1,21 @@
-import { useRouter } from "expo-router";
-import { useEffect } from "react";
 import { ActivityIndicator, Image, StyleSheet, Text, View } from "react-native";
 
 export default function Index() {
-  const router = useRouter();
+  // const router = useRouter();
 
-  useEffect(() => {
-    // Wait 2 seconds, then navigate
-    const timer = setTimeout(() => {
-      router.replace("/onboardingscreen/onboardingfrist");
-    }, 2000);
-
-    // Cleanup timer
-    return () => clearTimeout(timer);
-  }, [router]);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     router.replace("/onboardingscreen/onboardingfrist");
+  //   }, 2000);
+  //   return () => clearTimeout(timer);
+  // }, [router]);
   return (
     <View style={styles.container}>
-      <View style={styles.logoBox}>
+      <View  >
         <Image
-          source={require("../assets/images/icon.png")} 
-          style={styles.logo}
+          source={require("../assets/images/icon.png")}
+          className="rounded-full outline-4 outline-offset-2 outline-cyan-400"
+
         />
       </View>
       <Text style={styles.title}>Services 24/7 Inc</Text>
@@ -43,7 +39,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 30,
-    marginTop:300
+    marginTop: 180
   },
   logo: {
     width: 190,
@@ -53,10 +49,10 @@ const styles = StyleSheet.create({
   },
   title: {
     color: "#fff",
-    fontSize: 48,
+    fontSize: 35,
     fontWeight: "bold",
   },
   loader: {
-    marginTop: 300,
+    marginTop: 250,
   },
 });
