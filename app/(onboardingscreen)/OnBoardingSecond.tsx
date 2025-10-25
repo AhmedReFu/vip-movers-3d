@@ -43,6 +43,6 @@ export default function OnBoardingSecond() {
     // </View>
     // </SafeAreaView>
 
-    <OnBoarding buttonName="Next" title="Eco-Friendly Moving" description="Sustainable transport with electric vehicles, recyclable packaging & carbon footprint tracking for greener deliveries." routeName="OnBoardingThird" images={require('@/assets/images/onBoardingSecond.png')} widthSize2="w-[24px] bg-blue-400" widthSize1="w-[6px] bg-gray-300" widthSize3="w-[6px] bg-gray-300" />
+    <OnBoarding buttonName="Next" title="Eco-Friendly Moving" description="Sustainable transport with electric vehicles, recyclable packaging & carbon footprint tracking for greener deliveries." routeName="OnBoardingThird" images={require('@/assets/images/onBoardingSecond.png')} widthSize2="w-[24px] bg-blue-400" widthSize1="w-[6px] bg-gray-300" widthSize3="w-[6px] bg-gray-300" skip={true} />
   );
 }

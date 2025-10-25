@@ -44,6 +44,6 @@ export default function OnBoardingFirst() {
     //     </TouchableOpacity>
     //   </View>
     //   </SafeAreaView>
-    <OnBoarding buttonName="Next" title="Easy Booking & Scheduling" description="Easily schedule pickups with flexible timing, instant booking, and hassle-free recurring transfer options." routeName="OnBoardingSecond" images={require('@/assets/images/onBoardingOne.png')} widthSize1="w-[24px] bg-blue-400" widthSize2="w-[6px] bg-gray-300" widthSize3="w-[6px] bg-gray-300" />
+    <OnBoarding buttonName="Next" title="Easy Booking & Scheduling" description="Easily schedule pickups with flexible timing, instant booking, and hassle-free recurring transfer options." routeName="OnBoardingSecond" images={require('@/assets/images/onBoardingOne.png')} widthSize1="w-[24px] bg-blue-400" widthSize2="w-[6px] bg-gray-300" widthSize3="w-[6px] bg-gray-300" skip={true} />
   );
 }
