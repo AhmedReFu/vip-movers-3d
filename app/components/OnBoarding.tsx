@@ -10,6 +10,7 @@ type OnBoardingProps = {
     widthSize2: string;
     widthSize3: string;
     description: string;
+    skip: boolean;
     routeName: any;
     images: ImageSourcePropType; // 👈 could be ImageSourcePropType (better)
 };
@@ -22,7 +23,8 @@ const OnBoarding: React.FC<OnBoardingProps> = ({
     routeName,
     widthSize1,
     widthSize2,
-    widthSize3
+    widthSize3,
+    skip
 }) => {
     
     const router = useRouter();
@@ -32,14 +34,14 @@ const OnBoarding: React.FC<OnBoardingProps> = ({
             <View className="flex-1 bg-white px-6">
 
                 <View className="items-end mt-4">
-                    <TouchableOpacity onPress={() => router.replace("/SignIn")}>
-                        <Text className="text-gray-500 text-xl font-medium ">Skip</Text>
+                    <TouchableOpacity onPress={() => router.replace("/sign-in")}>
+                        {skip && <Text className="text-gray-500 text-xl font-medium ">Skip</Text>}
                     </TouchableOpacity>
                 </View>
                 <View className="flex-1 justify-center items-center">
                     <Image
                         source={images}
-                        className="w-[350px] h-[350px]"
+                        className="w-[430px] h-[400px]"
                         resizeMode="contain"
                     />
                 </View>
@@ -56,7 +58,7 @@ const OnBoarding: React.FC<OnBoardingProps> = ({
                 </View>
                 <TouchableOpacity
                     onPress={() => router.push(routeName)}
-                    className="bg-sky-400 py-5 rounded-xl mb-12"
+                    className="bg-sky-400 py-4 rounded-xl mb-12"
                     activeOpacity={0.8}
                 >
                     <Text className="text-white text-center text-3xl font-bold">
