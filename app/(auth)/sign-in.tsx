@@ -3,8 +3,6 @@ import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 const SignIn = () => {
-
-
   return (
     <SafeAreaProvider>
       <SafeAreaView style={{ flex: 1, backgroundColor: "#00D2FF" }}>
@@ -13,16 +11,13 @@ const SignIn = () => {
             <Image
               source={require("../../assets/images/icon.png")}
               className="rounded-full w-44 h-44   "
-
             />
           </View>
           <View className='items-start'>
             <Text className='text-3xl font-semibold '>Welcome Back!</Text>
             <Text className='text-lg font-light leading-10'>Hey! Good to see you again</Text>
           </View>
-
           <View className="flex-1 gap-4 py-5 ">
-
             <View className="bg-[url(/assets/images/email-bg.png)] border rounded-xl border-gray-200 w-full pl-4 flex-row items-center justify-items-center">
               <Image source={require("@/assets/images/emailmajor-1.png")} className="w-8" />
               <TextInput
@@ -50,13 +45,12 @@ const SignIn = () => {
             </View>
             <View className="items-end">
               <TouchableOpacity
-                onPress={() => router.navigate('/Otp')} >
+                onPress={() => router.navigate('/Forgot-Password')} >
                 <Text className="text-[#4FBF67] text-lg">Forgot password?</Text>
-
               </TouchableOpacity>
             </View>
             <TouchableOpacity
-
+              onPress={() => router.navigate("/AllowLocation")}
               className="bg-sky-400 py-6 rounded-xl my-2"
               activeOpacity={0.8}
             >
@@ -68,52 +62,43 @@ const SignIn = () => {
               <Text className=" text-xl text-gray-700">
                 Don&#39;t have an account?
               </Text>
-              <Link href="/sign-up" className=" text-[#00D2FF] text-xl font-semibold">Sign Up</Link>
+              <Link href="/Sign-Up" className=" text-[#00D2FF] text-xl font-semibold">Sign Up</Link>
             </View>
             <View className="flex-row items-center gap-8 justify-items-center max-w-full mt-10">
-              <Image source={require("@/assets/images/line.png")} className="border-gray-500"/>
+              <Image source={require("@/assets/images/line.png")} className="border-gray-500" />
               <Text className="font-semibold">Or</Text>
               <Image source={require("@/assets/images/line.png")} className="border-gray-500" />
             </View>
-
             <View className="flex items-center">
               <Text className="text-xl text-gray-700">Log in with</Text>
             </View>
-
             <View className="flex-row justify-center items-center gap-10">
-              
-                <TouchableOpacity
-
+              <TouchableOpacity
                 className="flex-row items-center justify-center border border-gray-300 rounded-xl px-10 py-5 bg-white"
-                  activeOpacity={0.8}
+                activeOpacity={0.8}
               >
                 <Image
                   className="w-8 h-8 mr-2"
                   source={require("@/assets/images/google.png")}
                   resizeMode="contain"
                 />
-                  <Text className="text-black text-center text-xl font-bold">
+                <Text className="text-black text-center text-xl font-bold">
                   Google
-                  </Text>
-                </TouchableOpacity>
-                
-             
-              
-                <TouchableOpacity
-
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
                 className="flex-row items-center justify-center border border-gray-300 rounded-xl px-6 py-5 bg-white"
-                  activeOpacity={0.8}
+                activeOpacity={0.8}
               >
                 <Image
                   className="w-8 h-8 mr-2"
                   source={require("@/assets/images/facebook.png")}
                   resizeMode="contain"
                 />
-                  <Text className="text-black text-center text-xl font-bold">
+                <Text className="text-black text-center text-xl font-bold">
                   Facebook
-                  </Text>
-                </TouchableOpacity>
-              
+                </Text>
+              </TouchableOpacity>
             </View>
           </View>
         </View>

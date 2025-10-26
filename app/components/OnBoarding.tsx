@@ -34,7 +34,7 @@ const OnBoarding: React.FC<OnBoardingProps> = ({
             <View className="flex-1 bg-white px-6">
 
                 <View className="items-end mt-4">
-                    <TouchableOpacity onPress={() => router.navigate("/sign-in")}>
+                    <TouchableOpacity onPress={() => router.navigate("/Sign-In")}>
                         {skip && <Text className="text-gray-500 text-xl font-medium ">Skip</Text>}
                     </TouchableOpacity>
                 </View>
