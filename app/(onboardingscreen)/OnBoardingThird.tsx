@@ -41,6 +41,6 @@ export default function OnBoardingThird() {
         //     </View>
         //     </SafeAreaView>
 
-        <OnBoarding buttonName="Get Started" title="Secure & Reliable Transport" description="Ensure safe deliveries with verified movers, secure packaging, and real-time tracking updates." routeName="sign-in" images={require('@/assets/images/onBoardingThird.png')} widthSize3="w-[24px] bg-blue-400" widthSize1="w-[6px] bg-gray-300" widthSize2="w-[6px] bg-gray-300" skip={false} />
+        <OnBoarding buttonName="Get Started" title="Secure & Reliable Transport" description="Ensure safe deliveries with verified movers, secure packaging, and real-time tracking updates." routeName="Sign-In" images={require('@/assets/images/onBoardingThird.png')} widthSize3="w-[24px] bg-blue-400" widthSize1="w-[6px] bg-gray-300" widthSize2="w-[6px] bg-gray-300" skip={false} />
     );
 }

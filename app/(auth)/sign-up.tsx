@@ -12,17 +12,14 @@ const SignUp = () => {
           <View className='items-center mb-4 '>
             <Image
               source={require("../../assets/images/icon.png")}
-              className="rounded-full w-44 h-44   "
-
+              className="rounded-full w-44 h-44"
             />
           </View>
           <View className='items-start'>
             <Text className='text-3xl font-semibold '>Sign Up</Text>
             <Text className='text-lg font-light leading-10'>Hello! Let’s join with us</Text>
           </View>
-
           <View className="flex-1 gap-4 py-5 ">
-
             <View className="bg-[url(/assets/images/email-bg.png)] border rounded-xl border-gray-200 w-full pl-4 flex-row items-center justify-items-center">
               <Image source={require("@/assets/images/profile.png")} className="w-8" />
               <TextInput
@@ -30,8 +27,6 @@ const SignUp = () => {
                 autoCorrect={false}
                 placeholder="Full name"
                 className=" h-20 p-4 text-black w-5/6 font-medium text-lg"
-                
-                
               />
             </View>
             <View className="bg-[url(/assets/images/email-bg.png)] border rounded-xl border-gray-200 w-full pl-4 flex-row items-center justify-items-center">
@@ -42,10 +37,8 @@ const SignUp = () => {
                 placeholder="Enter your email"
                 keyboardType="email-address"
                 className=" h-20 p-4 text-black w-5/6 font-medium text-lg"
-
               />
             </View>
-
             <View className="bg-[url(/assets/images/email-bg.png)] border rounded-xl border-gray-200 w-full pl-4 flex-row items-center justify-items-center">
               <View className=" p-0">
                 <Image source={require("@/assets/images/lock-vector.png")} className="w-8" />
@@ -61,9 +54,7 @@ const SignUp = () => {
                 <Image source={require("@/assets/images/show-eye.png")} className="w-8" />
               </View>
             </View>
-            
             <TouchableOpacity
-
               className="bg-sky-400 py-6 rounded-xl my-2"
               activeOpacity={0.8}
             >
@@ -75,22 +66,18 @@ const SignUp = () => {
               <Text className=" text-xl text-gray-700">
                 Already have an account?
               </Text>
-              <Link href="/sign-in" className=" text-[#00D2FF] text-xl font-semibold">Sign In</Link>
+              <Link href="/Sign-In" className=" text-[#00D2FF] text-xl font-semibold">Sign In</Link>
             </View>
             <View className="flex-row items-center gap-8 justify-items-center max-w-full">
               <Image source={require("@/assets/images/line.png")} className="border-gray-500" />
               <Text className="font-semibold">Or</Text>
               <Image source={require("@/assets/images/line.png")} className="border-gray-500" />
             </View>
-
             <View className="flex items-center">
               <Text className="text-xl text-gray-700">Sign Up With</Text>
             </View>
-
             <View className="flex-row justify-center items-center gap-10">
-
               <TouchableOpacity
-
                 className="flex-row items-center justify-center border border-gray-300 rounded-xl px-10 py-5 bg-white"
                 activeOpacity={0.8}
               >
@@ -103,11 +90,7 @@ const SignUp = () => {
                   Google
                 </Text>
               </TouchableOpacity>
-
-
-
               <TouchableOpacity
-
                 className="flex-row items-center justify-center border border-gray-300 rounded-xl px-10 py-5 bg-white"
                 activeOpacity={0.8}
               >
