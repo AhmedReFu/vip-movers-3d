@@ -64,7 +64,7 @@ const SignUp = () => {
             
             <TouchableOpacity
 
-              className="bg-sky-400 py-6 rounded-xl my-3"
+              className="bg-sky-400 py-6 rounded-xl my-2"
               activeOpacity={0.8}
             >
               <Text className="text-white text-center text-3xl font-bold">
@@ -72,12 +72,12 @@ const SignUp = () => {
               </Text>
             </TouchableOpacity>
             <View className="flex justify-center flex-row gap-2 ">
-              <Text className=" text-2xl text-gray-700">
+              <Text className=" text-xl text-gray-700">
                 Already have an account?
               </Text>
-              <Link href="/sign-in" className=" text-[#00D2FF] text-2xl font-semibold">Sign In</Link>
+              <Link href="/sign-in" className=" text-[#00D2FF] text-xl font-semibold">Sign In</Link>
             </View>
-            <View className="flex-row items-center gap-8 justify-items-center max-w-full mt-2">
+            <View className="flex-row items-center gap-8 justify-items-center max-w-full">
               <Image source={require("@/assets/images/line.png")} className="border-gray-500" />
               <Text className="font-semibold">Or</Text>
               <Image source={require("@/assets/images/line.png")} className="border-gray-500" />
@@ -87,7 +87,7 @@ const SignUp = () => {
               <Text className="text-xl text-gray-700">Sign Up With</Text>
             </View>
 
-            <View className="flex-row justify-center items-center gap-4 mt-4">
+            <View className="flex-row justify-center items-center gap-10">
 
               <TouchableOpacity
 

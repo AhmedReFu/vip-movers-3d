@@ -1,4 +1,4 @@
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
@@ -49,22 +49,26 @@ const SignIn = () => {
               </View>
             </View>
             <View className="items-end">
-              <Link href="/otp" className="text-[#4FBF67] text-lg">Forgot password?</Link>
+              <TouchableOpacity
+                onPress={() => router.navigate('/Otp')} >
+                <Text className="text-[#4FBF67] text-lg">Forgot password?</Text>
+
+              </TouchableOpacity>
             </View>
             <TouchableOpacity
 
-              className="bg-sky-400 py-6 rounded-xl my-3"
+              className="bg-sky-400 py-6 rounded-xl my-2"
               activeOpacity={0.8}
             >
               <Text className="text-white text-center text-3xl font-bold">
                 Sign In
               </Text>
             </TouchableOpacity>
-            <View className="flex justify-center flex-row gap-2 ">
-              <Text className=" text-2xl text-gray-700">
+            <View className="flex justify-center flex-row gap-2 mb-3">
+              <Text className=" text-xl text-gray-700">
                 Don&#39;t have an account?
               </Text>
-              <Link href="/sign-up" className=" text-[#00D2FF] text-2xl font-semibold">Sign Up</Link>
+              <Link href="/sign-up" className=" text-[#00D2FF] text-xl font-semibold">Sign Up</Link>
             </View>
             <View className="flex-row items-center gap-8 justify-items-center max-w-full mt-10">
               <Image source={require("@/assets/images/line.png")} className="border-gray-500"/>
@@ -76,7 +80,7 @@ const SignIn = () => {
               <Text className="text-xl text-gray-700">Log in with</Text>
             </View>
 
-            <View className="flex-row justify-center items-center gap-4 mt-4">
+            <View className="flex-row justify-center items-center gap-10">
               
                 <TouchableOpacity
 
@@ -84,12 +88,12 @@ const SignIn = () => {
                   activeOpacity={0.8}
               >
                 <Image
-                  className="w-10 h-10 mr-2"
+                  className="w-8 h-8 mr-2"
                   source={require("@/assets/images/google.png")}
                   resizeMode="contain"
                 />
                   <Text className="text-black text-center text-xl font-bold">
-                    Sign In
+                  Google
                   </Text>
                 </TouchableOpacity>
                 
@@ -97,16 +101,16 @@ const SignIn = () => {
               
                 <TouchableOpacity
 
-                className="flex-row items-center justify-center border border-gray-300 rounded-xl px-10 py-5 bg-white"
+                className="flex-row items-center justify-center border border-gray-300 rounded-xl px-6 py-5 bg-white"
                   activeOpacity={0.8}
               >
                 <Image
-                  className="w-10 h-10 mr-2"
+                  className="w-8 h-8 mr-2"
                   source={require("@/assets/images/facebook.png")}
                   resizeMode="contain"
                 />
                   <Text className="text-black text-center text-xl font-bold">
-                    Sign In
+                  Facebook
                   </Text>
                 </TouchableOpacity>
               
