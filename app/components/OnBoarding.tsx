@@ -34,7 +34,7 @@ const OnBoarding: React.FC<OnBoardingProps> = ({
             <View className="flex-1 bg-white px-6">
 
                 <View className="items-end mt-4">
-                    <TouchableOpacity onPress={() => router.replace("/sign-in")}>
+                    <TouchableOpacity onPress={() => router.navigate("/sign-in")}>
                         {skip && <Text className="text-gray-500 text-xl font-medium ">Skip</Text>}
                     </TouchableOpacity>
                 </View>
@@ -57,7 +57,7 @@ const OnBoarding: React.FC<OnBoardingProps> = ({
                     <View className={`${widthSize3} h-[6px] rounded-full`} />
                 </View>
                 <TouchableOpacity
-                    onPress={() => router.push(routeName)}
+                    onPress={() => router.navigate(routeName)}
                     className="bg-sky-400 py-4 rounded-xl mb-12"
                     activeOpacity={0.8}
                 >

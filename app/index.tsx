@@ -8,7 +8,7 @@ export default function Index() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      router.replace("/OnBoardingFirst");
+      router.navigate("/OnBoardingFirst");
     }, 3000);
     return () => clearTimeout(timer);
   }, [router]);
