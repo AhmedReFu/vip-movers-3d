@@ -58,7 +58,7 @@ const OnBoarding: React.FC<OnBoardingProps> = ({
                 </View>
                 <TouchableOpacity
                     onPress={() => router.navigate(routeName)}
-                    className="bg-sky-400 py-4 rounded-xl mb-12"
+                    className="bg-sky-400 py-6 rounded-xl mb-12"
                     activeOpacity={0.8}
                 >
                     <Text className="text-white text-center text-3xl font-bold">

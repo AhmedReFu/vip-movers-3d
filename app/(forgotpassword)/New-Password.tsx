@@ -2,7 +2,7 @@ import { router } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { Animated, Image, Modal, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import TopBar from "../components/TopBar";
+import TopBar from "../../components/TopBar";
 
 const NewPassword = () => {
     const [newPassword, setNewPassword] = useState('');
@@ -51,7 +51,7 @@ const NewPassword = () => {
     return (
         <SafeAreaProvider>
             <SafeAreaView style={{ flex: 1, backgroundColor: "#00D2FF" }}>
-                <View className='flex-1 bg-white pt-10 px-8'>
+                <View className='flex-1 bg-white pt-10 px-6'>
                     <TopBar />
                     <View className='items-center'>
                         <Text className='text-3xl font-semibold '>Create New Password</Text>

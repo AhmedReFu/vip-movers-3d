@@ -1,6 +1,6 @@
 
 import React from "react";
-import OnBoarding from "../components/OnBoarding";
+import OnBoarding from "../../components/OnBoarding";
 
 export default function OnBoardingSecond() {
 

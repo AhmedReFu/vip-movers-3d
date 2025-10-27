@@ -25,3 +25,9 @@ export interface CustomButtonProps {
   textStyle?: string;
   isLoading?: boolean;
 }
+
+export interface TabBarIconProps {
+  focused: boolean;
+  icon: React.ReactNode;
+  title: string;
+}

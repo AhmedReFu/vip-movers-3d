@@ -30,13 +30,13 @@ const AllowLocation = () => {
         setShowSuccessModal(false);
         // Navigate to home screen
         setTimeout(() => {
-            router.replace('/Home'); // Update this to your home screen route
+            router.replace('/(tabs)'); // Update this to your home screen route
         }, 200);
     };
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: "#00D2FF" }}>
-            <View className='flex-1 bg-white px-8 justify-center'>
+            <View className='flex-1 bg-white px-6 justify-center'>
                 <View className='items-center justify-center'>
                     <View className='mb-8'>
                         <Image source={require("@/assets/images/locationimg.png")} />
@@ -55,7 +55,7 @@ const AllowLocation = () => {
                         </Text>
                     </TouchableOpacity>
                     <View className="mt-4">
-                        <TouchableOpacity onPress={() => router.replace('/Home')}>
+                        <TouchableOpacity onPress={() => router.replace('/(tabs)')}>
                             <Text className="text-gray-500 text-xl font-medium">Skip</Text>
                         </TouchableOpacity>
                     </View>

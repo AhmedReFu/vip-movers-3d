@@ -1,14 +1,14 @@
 import { useRouter } from "expo-router";
 import { useEffect } from "react";
 import { Image, Text, View } from "react-native";
-import Spinner from "./components/Spinner";
+import Spinner from "../components/Spinner";
 
 export default function Index() {
   const router = useRouter();
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      router.navigate("/OnBoardingFirst");
+      router.navigate("/(tabs)");
     }, 3000);
     return () => clearTimeout(timer);
   }, [router]);
