@@ -1,3 +1,4 @@
+import { images } from "@/constants";
 import { useRouter } from "expo-router";
 import { useEffect } from "react";
 import { Image, Text, View } from "react-native";
@@ -8,8 +9,8 @@ export default function Index() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      router.navigate("/(tabs)");
-    }, 3000);
+      router.navigate("/OnBoardingFirst")
+    }, 2000);
     return () => clearTimeout(timer);
   }, [router]);
   return (
@@ -18,7 +19,7 @@ export default function Index() {
         <View className="absolute w-64 h-64 rounded-full bg-white/15" />
         <View className="absolute w-56 h-56 rounded-full bg-white/20" />
         <Image
-          source={require("../assets/images/icon.png")}
+          source={images.icon}
           className="rounded-full w-48 h-48   "
 
         />

@@ -1,3 +1,4 @@
+import { images } from '@/constants';
 import { useEffect, useRef, useState } from 'react';
 import { Animated, Image, Modal, Platform, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
@@ -158,7 +159,7 @@ const Otp = () => {
         <View className='flex-1 bg-white pt-10 px-8'>
           <View className='items-center mb-8'>
             <Image
-              source={require("../../assets/images/icon.png")}
+              source={images.icon}
               className="rounded-full w-44 h-44"
             />
           </View>
@@ -257,7 +258,7 @@ const Otp = () => {
               className="bg-white rounded-3xl p-12 w-full max-w-md items-center"
             >
               <Image
-                source={require("@/assets/images/groupicon.png")}
+                source={images.successIcon}
                 className="mb-6"
               />
 
