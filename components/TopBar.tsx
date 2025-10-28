@@ -7,9 +7,9 @@ import { TouchableOpacity, View } from 'react-native';
 
 const TopBar = () => {
     return (
-        <View className="items-start mb-20">
+        <View className="mb-20">
             <TouchableOpacity onPress={() => router.back()}>
-                <FontAwesome6 name="arrow-left" size={24} color="black" />
+                <FontAwesome6 name="arrow-left" size={28} color="black" />
             </TouchableOpacity>
         </View>
     )

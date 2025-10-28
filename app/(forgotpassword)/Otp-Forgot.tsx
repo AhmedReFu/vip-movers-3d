@@ -2,7 +2,7 @@ import { router } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { Animated, Platform, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import TopBar from '../components/TopBar';
+import TopBar from '../../components/TopBar';
 
 const OtpForgot = () => {
   const [otp, setOtp] = useState<string[]>(['', '', '', '']);
@@ -140,7 +140,7 @@ router.navigate('/New-Password')
   return (
     <SafeAreaProvider>
       <SafeAreaView style={{ flex: 1, backgroundColor: "#00D2FF" }}>
-        <View className='flex-1 bg-white pt-10 px-8'>
+        <View className='flex-1 bg-white pt-10 px-6'>
           <TopBar/>
           <View className='items-center mb-10'>
             <Text className='text-4xl font-semibold mb-4'>OTP Verification</Text>
