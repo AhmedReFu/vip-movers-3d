@@ -14,7 +14,7 @@ const Services = () => {
                         <Text className='text-3xl font-bold'>All Services</Text>
                     </View>
                 </View>
-                <View className='flex-row flex-wrap gap-6 mb-20'>
+                <View className='flex-row flex-wrap gap-4 mb-20'>
                     <View className='items-center w-32 h-32'>
                         <Image source={images.packing} className='size-28' />
                         <Text>Packing</Text>

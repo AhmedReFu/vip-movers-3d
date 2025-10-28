@@ -80,8 +80,9 @@ const Home = () => {
               </View>
             </View>
           </View>
-          <View className='bg-white flex-1 rounded-t-3xl pt-10 '>
-            <ScrollView showsVerticalScrollIndicator={false}>
+
+          <View className='bg-gray-100 flex-1 rounded-t-3xl pt-10 '>
+            <ScrollView showsVerticalScrollIndicator={false} className='mb-10'>
               <View className='px-6'>
                 <View className='rounded-2xl overflow-hidden mb-6' >
                   <Image
@@ -89,7 +90,7 @@ const Home = () => {
                     className='w-full h-full absolute'
                     resizeMode="cover"
                   />
-                  <View className='flex-1 p-5 justify-between' style={{ zIndex: 10 }}>
+                  <View className='flex-1 p-4 justify-between' style={{ zIndex: 10 }}>
                     <View className='mb-10'>
                       <Text className='text-4xl font-bold text-black drop-shadow-lg'>
                         VIP Movers
@@ -166,34 +167,64 @@ const Home = () => {
                     </View>
                   </View>
 
-                  <View>
-                    <View className=' flex-row items-center justify-between my-4'>
-                      <Text className='text-2xl font-bold text-gray-800'>
-                        Popular Services
-                      </Text>
-                      <TouchableOpacity
-                        onPress={() => router.navigate("/Services")}
 
-                      >
-                        <Text className='text-cyan-400 font-semibold text-xl'>
-                          View all
-                        </Text>
-                      </TouchableOpacity>
-                    </View>
-                    <ScrollView
-                      horizontal={true}
-                      showsHorizontalScrollIndicator={false}
-                      className="mb-20 bg-white">
-                      <Services images={images.services1} title='Packing' rating='4.8' review='10000' />
-                      <Services images={images.services2} title='Loading' rating='4.8' review='10000' />
-                      <Services images={images.services3} title='Loading' rating='4.8' review='10000' />
-                      <Services images={images.services4} title='Unloading' rating='4.9' review='67,000' />
-                    </ScrollView>
-                  </View>
+
                 </View>
-                
+
               </View>
-              
+              <View className='bg-white my-10'>
+                <View className=' flex-row items-center justify-between my-4 px-6'>
+                  <Text className='text-2xl font-bold text-gray-800'>
+                    Popular Services
+                  </Text>
+                  <TouchableOpacity
+                    onPress={() => router.navigate("/Services")}
+
+                  >
+                    <Text className='text-cyan-400 font-semibold text-xl'>
+                      View all
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+                <ScrollView
+
+                  horizontal={true}
+                  showsHorizontalScrollIndicator={false}
+                  className="mb-20 bg-white px-6">
+                  <Services images={images.services1} title='Packing' rating='4.8' review='10000' />
+                  <Services images={images.services2} title='Loading' rating='4.8' review='10000' />
+                  <Services images={images.services3} title='Loading' rating='4.8' review='10000' />
+                  <Services images={images.services4} title='Unloading' rating='4.9' review='67,000' />
+                </ScrollView>
+
+
+              </View>
+              <View className='bg-white mb-10'>
+                <View className=' flex-row items-center justify-between my-4 px-6'>
+                  <Text className='text-2xl font-bold text-gray-800'>
+                    Popular Services
+                  </Text>
+                  <TouchableOpacity
+                    onPress={() => router.navigate("/Services")}
+
+                  >
+                    <Text className='text-cyan-400 font-semibold text-xl'>
+                      View all
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+                <ScrollView
+                  horizontal={true}
+                  showsHorizontalScrollIndicator={false}
+                  className="mb-20 bg-white px-6">
+                  <Services images={images.services1} title='Packing' rating='4.8' review='10000' />
+                  <Services images={images.services2} title='Loading' rating='4.8' review='10000' />
+                  <Services images={images.services3} title='Loading' rating='4.8' review='10000' />
+                  <Services images={images.services4} title='Unloading' rating='4.9' review='67,000' />
+                </ScrollView>
+
+
+              </View>
             </ScrollView>
           </View>
 

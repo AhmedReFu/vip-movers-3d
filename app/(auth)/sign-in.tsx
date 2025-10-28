@@ -19,7 +19,7 @@ const SignIn = () => {
             <Text className='text-lg font-light leading-10'>Hey! Good to see you again</Text>
           </View>
           <View className="flex-1 gap-4 py-5 ">
-            <View className="border rounded-xl border-gray-200 w-full pl-4 flex-row items-center justify-items-center">
+            <View className=" border rounded-xl border-gray-200 w-full pl-4 flex-row items-center justify-items-center">
               <Image source={images.emailIcon} className="w-8" />
               <TextInput
                 autoCapitalize="none"
@@ -29,7 +29,7 @@ const SignIn = () => {
                 keyboardType="email-address"
               />
             </View>
-            <View className="border rounded-xl border-gray-200 w-full pl-4 flex-row items-center justify-items-center">
+            <View className=" border rounded-xl border-gray-200 w-full pl-4 flex-row items-center justify-items-center">
               <View className=" p-0">
                 <Image source={images.lockIcon} className="w-8" />
               </View>
