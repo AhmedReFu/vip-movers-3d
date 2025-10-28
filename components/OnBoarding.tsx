@@ -12,59 +12,69 @@ type OnBoardingProps = {
     description: string;
     skip: boolean;
     routeName: any;
-    images: ImageSourcePropType; // 👈 could be ImageSourcePropType (better)
+    imagesPath: ImageSourcePropType;
 };
 
 const OnBoarding: React.FC<OnBoardingProps> = ({
     buttonName,
     title,
     description,
-    images,
+    imagesPath,
     routeName,
     widthSize1,
     widthSize2,
     widthSize3,
     skip
 }) => {
-    
+
     const router = useRouter();
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: "#00D2FF" }}>
-            <View className="flex-1 bg-white px-6">
+            <View className="bg-white flex-1 px-6">
+                <View className="items-end mt-4 pb-4 ">
+                    {skip && (
+                        <TouchableOpacity onPress={() => router.navigate("/Sign-In")} activeOpacity={0.8}>
+                            <Text className="text-gray-500 text-xl">Skip</Text>
+                        </TouchableOpacity>
+                    )}
+                </View>
 
-                <View className="items-end mt-4">
-                    <TouchableOpacity onPress={() => router.navigate("/Sign-In")}>
-                        {skip && <Text className="text-gray-500 text-xl font-medium ">Skip</Text>}
-                    </TouchableOpacity>
+                <View className="flex-1 justify-between  pb-8">
+                    <View className="flex-1 justify-center items-center">
+                        <Image
+                            source={imagesPath}
+                            style={{ width: 450, height: 400 }}
+                            resizeMode="contain"
+                        />
+                    </View>
+
+                    <View>
+                        <View className="mb-6">
+                            <Text className="text-4xl font-bold text-gray-900 mb-3 text-center px-2">
+                                {title}
+                            </Text>
+                            <Text className="text-xl text-gray-500 leading-6 text-center px-4">
+                                {description}
+                            </Text>
+                        </View>
+                        <View className="flex-row justify-center my-8">
+                            <View className={`${widthSize1} h-2 rounded-full mr-1.5`} />
+                            <View className={`${widthSize2} h-2 rounded-full mr-1.5`} />
+                            <View className={`${widthSize3} h-2 rounded-full`} />
+                        </View>
+                        <TouchableOpacity
+                            onPress={() => router.navigate(routeName)}
+                            className="bg-[#00D2FF] rounded-2xl mb-10"
+                            style={{ paddingVertical: 18 }}
+                            activeOpacity={0.8}
+                        >
+                            <Text className="text-white text-center text-lg font-bold">
+                                {buttonName}
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
-                <View className="flex-1 justify-center items-center">
-                    <Image
-                        source={images}
-                        className="w-[430px] h-[400px]"
-                        resizeMode="contain"
-                    />
-                </View>
-                <Text className="text-center text-2xl font-bold text-gray-800 mb-2">
-                    {title}
-                </Text>
-                <Text className="text-center text-gray-500 text-xl leading-7 mb-16">
-                    {description}
-                </Text>
-                <View className="flex-row justify-center items-center mb-16">
-                    <View className={`${widthSize1} h-[6px] rounded-full mr-2`}  />
-                    <View className={`${widthSize2} h-[6px] rounded-full mr-2`} />
-                    <View className={`${widthSize3} h-[6px] rounded-full`} />
-                </View>
-                <TouchableOpacity
-                    onPress={() => router.navigate(routeName)}
-                    className="bg-sky-400 py-6 rounded-xl mb-12"
-                    activeOpacity={0.8}
-                >
-                    <Text className="text-white text-center text-3xl font-bold">
-                        {buttonName}
-                    </Text>
-                </TouchableOpacity>
             </View>
         </SafeAreaView>
     );

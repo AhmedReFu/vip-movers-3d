@@ -1,3 +1,4 @@
+import { images } from '@/constants'
 import { router } from 'expo-router'
 import React, { useEffect, useRef, useState } from 'react'
 import { Animated, Image, Modal, Text, TouchableOpacity, View } from 'react-native'
@@ -39,7 +40,7 @@ const AllowLocation = () => {
             <View className='flex-1 bg-white px-6 justify-center'>
                 <View className='items-center justify-center'>
                     <View className='mb-8'>
-                        <Image source={require("@/assets/images/locationimg.png")} />
+                        <Image source={images.locationIcon} />
                     </View>
                     <View className='items-center mb-10'>
                         <Text className='text-3xl font-semibold mb-4 text-center'>Allow location access?</Text>
@@ -75,7 +76,7 @@ const AllowLocation = () => {
                         className="bg-white rounded-3xl p-12 w-full max-w-md items-center"
                     >
                         <Image
-                            source={require("@/assets/images/groupicon.png")}
+                            source={images.successIcon}
                             className="mb-6"
                         />
 

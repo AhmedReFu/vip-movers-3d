@@ -1,3 +1,4 @@
+import { images } from '@/constants';
 import { router } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { Animated, Image, Modal, Text, TextInput, TouchableOpacity, View } from 'react-native';
@@ -58,9 +59,9 @@ const NewPassword = () => {
                         <Text className='text-lg font-light leading-10'>Enter your new password</Text>
                     </View>
                     <View className="flex-1 gap-4 py-5 ">
-                        <View className="bg-[url(/assets/images/email-bg.png)] border rounded-xl border-gray-200 w-full pl-4 flex-row items-center justify-items-center">
+                        <View className="border rounded-xl border-gray-200 w-full pl-4 flex-row items-center justify-items-center">
                             <View className=" p-0">
-                                <Image source={require("@/assets/images/lock-vector.png")} className="w-8" />
+                                <Image source={images.lockIcon} className="w-8" />
                             </View>
                             <TextInput
                                 autoCapitalize="none"
@@ -75,12 +76,12 @@ const NewPassword = () => {
                                 className="pr-6"
                                 onPress={() => setShowNewPassword(!showNewPassword)}
                             >
-                                <Image source={require("@/assets/images/show-eye.png")} className="w-8" />
+                                <Image source={images.eyeIcon} className="w-8" />
                             </TouchableOpacity>
                         </View>
-                        <View className="bg-[url(/assets/images/email-bg.png)] border rounded-xl border-gray-200 w-full pl-4 flex-row items-center justify-items-center">
+                        <View className="border rounded-xl border-gray-200 w-full pl-4 flex-row items-center justify-items-center">
                             <View className=" p-0">
-                                <Image source={require("@/assets/images/lock-vector.png")} className="w-8" />
+                                <Image source={images.lockIcon} className="w-8" />
                             </View>
                             <TextInput
                                 autoCapitalize="none"
@@ -95,7 +96,7 @@ const NewPassword = () => {
                                 className="pr-6"
                                 onPress={() => setShowConfirmPassword(!showConfirmPassword)}
                             >
-                                <Image source={require("@/assets/images/show-eye.png")} className="w-8" />
+                                <Image source={images.eyeIcon} className="w-8" />
                             </TouchableOpacity>
                         </View>
                         <TouchableOpacity
@@ -123,7 +124,7 @@ const NewPassword = () => {
                             className="bg-white rounded-3xl p-12 w-full max-w-md items-center"
                         >
                             <Image
-                                source={require("@/assets/images/groupicon.png")}
+                                source={images.successIcon}
                                 className="mb-6"
                             />
 

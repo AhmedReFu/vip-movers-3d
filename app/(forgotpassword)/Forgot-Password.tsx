@@ -1,3 +1,4 @@
+import { images } from '@/constants'
 import { router } from 'expo-router'
 import React from 'react'
 import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
@@ -15,8 +16,8 @@ const ForgotPassword = () => {
                             <Text className='text-lg font-light leading-10'>Recover your account password</Text>
                         </View>
                         <View className="flex-1 gap-4 py-5 ">
-                            <View className="bg-[url(/assets/images/email-bg.png)] border rounded-xl border-gray-200 w-full pl-4 flex-row items-center justify-items-center">
-                                <Image source={require("@/assets/images/emailmajor-1.png")} className="w-8" />
+                        <View className="border rounded-xl border-gray-200 w-full pl-4 flex-row items-center justify-items-center">
+                            <Image source={images.emailIcon} className="w-8" />
                                 <TextInput
                                     autoCapitalize="none"
                                     autoCorrect={false}
