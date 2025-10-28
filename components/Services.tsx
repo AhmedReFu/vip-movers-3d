@@ -14,10 +14,10 @@ const Services = ({ images, title, rating, review }: OnBoardingProps) => {
 
   return (
       <TouchableOpacity
-          className='bg-gray-700'
+          className='bg-gray-700 mr-8'
           activeOpacity={0.8}
       >
-          <View className='mr-8'>
+          <View className=''>
               <Image source={images} />
               <Text className='text-2xl my-2'>{title}</Text>
               <View className='flex-row'>
