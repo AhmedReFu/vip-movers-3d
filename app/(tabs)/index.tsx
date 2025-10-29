@@ -1,4 +1,5 @@
 import Services from '@/components/Services';
+import ServicesArea from '@/components/ServicesArea';
 import { images } from '@/constants';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { router } from 'expo-router';
@@ -28,7 +29,10 @@ const Home = () => {
     outputRange: ['0deg', '360deg'],
   });
 
+
+
   return (
+
     <SafeAreaProvider>
       <SafeAreaView style={{ flex: 1, backgroundColor: "#00D2FF" }}>
         <View className='flex-1 bg-[#00D2FF] '>
@@ -81,8 +85,8 @@ const Home = () => {
             </View>
           </View>
 
-          <View className='bg-gray-100 flex-1 rounded-t-3xl pt-10 '>
-            <ScrollView showsVerticalScrollIndicator={false} className='mb-10'>
+          <View className='bg-gray-100 flex-1 rounded-t-3xl pt-10'>
+            <ScrollView showsVerticalScrollIndicator={false} className='mb-10 '>
               <View className='px-6'>
                 <View className='rounded-2xl overflow-hidden mb-6' >
                   <Image
@@ -102,7 +106,9 @@ const Home = () => {
                         Floridas #1 Moving Company
                       </Text>
                     </View>
-                    <TouchableOpacity className='bg-cyan-400 py-3 px-12 rounded-lg self-start' activeOpacity={0.8}>
+                    <TouchableOpacity
+                      onPress={() => router.navigate("/Sign-In")}
+                      className='bg-cyan-400 py-3 px-12 rounded-lg self-start' activeOpacity={0.8}>
                       <Text className='text-white font-bold text-xl'>
                         Call Us
                       </Text>
@@ -121,13 +127,13 @@ const Home = () => {
                     Donation
                   </Text>
                 </TouchableOpacity>
-                <View className=" items-center justify-items-center max-w-full my-8">
+                <View className=" items-center justify-items-center max-w-full my-6">
                   <View className='bg-gray-200 px-96 py-[0.5px]'>
                   </View>
                 </View>
 
                 <View className='mb-6'>
-                  <View className=' flex-row items-center justify-between my-6'>
+                  <View className=' flex-row items-center justify-between my-4'>
                     <Text className='text-2xl font-bold text-gray-800'>
                       Our Services
                     </Text>
@@ -143,37 +149,33 @@ const Home = () => {
                   <View className='flex-row flex-wrap justify-between gap-4 mb-4'>
                     <View className='items-center w-32 h-32'>
                       <Image source={images.packing} className='size-28' />
-                      <Text>Packing</Text>
+                      <Text className='font-bold'>Packing</Text>
                     </View>
                     <View className='items-center w-32 h-32 '>
                       <Image source={images.loading} className='size-28' />
-                      <Text>Loading</Text>
+                      <Text className='font-bold'>Loading</Text>
                     </View>
                     <View className='items-center w-32 h-32 '>
                       <Image source={images.unloading} className='size-28' />
-                      <Text>Unloading</Text>
+                      <Text className='font-bold'>Unloading</Text>
                     </View>
                     <View className='items-center w-32 h-32 '>
                       <Image source={images.deliveryTruckIcon} className='size-28' />
-                      <Text>Delivery</Text>
+                      <Text className='font-bold'>Delivery</Text>
                     </View>
                     <View className='items-center w-32 h-32 '>
                       <Image source={images.removeIcon} className='size-28' />
-                      <Text>Junk Removal</Text>
+                      <Text className='font-bold'>Junk Removal</Text>
                     </View>
                     <View className='items-center w-32 h-32 '>
                       <Image source={images.labourIcon} className='size-28' />
-                      <Text>Labour Service</Text>
+                      <Text className='font-bold'>Labour Service</Text>
                     </View>
                   </View>
-
-
-
                 </View>
-
               </View>
-              <View className='bg-white my-10'>
-                <View className=' flex-row items-center justify-between my-4 px-6'>
+              <View className='bg-white mb-12'>
+                <View className=' flex-row items-center justify-between my-10 px-6'>
                   <Text className='text-2xl font-bold text-gray-800'>
                     Popular Services
                   </Text>
@@ -181,7 +183,7 @@ const Home = () => {
                     onPress={() => router.navigate("/Services")}
 
                   >
-                    <Text className='text-cyan-400 font-semibold text-xl'>
+                    <Text className='text-cyan-400 font-bold text-2xl'>
                       View all
                     </Text>
                   </TouchableOpacity>
@@ -190,37 +192,34 @@ const Home = () => {
 
                   horizontal={true}
                   showsHorizontalScrollIndicator={false}
-                  className="mb-20 bg-white px-6">
+                  className="mb-4 bg-white px-6 mr-4">
                   <Services images={images.services1} title='Packing' rating='4.8' review='10000' />
                   <Services images={images.services2} title='Loading' rating='4.8' review='10000' />
                   <Services images={images.services3} title='Loading' rating='4.8' review='10000' />
                   <Services images={images.services4} title='Unloading' rating='4.9' review='67,000' />
                 </ScrollView>
-
-
               </View>
-              <View className='bg-white mb-10'>
-                <View className=' flex-row items-center justify-between my-4 px-6'>
+              <View className='bg-white mb-20'>
+                <View className=' flex-row columns-2 items-center justify-between my-6 px-6'>
                   <Text className='text-2xl font-bold text-gray-800'>
-                    Popular Services
+                    Our local service area
                   </Text>
-                  <TouchableOpacity
-                    onPress={() => router.navigate("/Services")}
-
-                  >
-                    <Text className='text-cyan-400 font-semibold text-xl'>
-                      View all
-                    </Text>
-                  </TouchableOpacity>
                 </View>
                 <ScrollView
                   horizontal={true}
                   showsHorizontalScrollIndicator={false}
-                  className="mb-20 bg-white px-6">
-                  <Services images={images.services1} title='Packing' rating='4.8' review='10000' />
-                  <Services images={images.services2} title='Loading' rating='4.8' review='10000' />
-                  <Services images={images.services3} title='Loading' rating='4.8' review='10000' />
-                  <Services images={images.services4} title='Unloading' rating='4.9' review='67,000' />
+                  className=" bg-white px-6 mr-4" >
+                  <View className='flex-row pr-6'>
+
+                    <ServicesArea images={images.BrevaryCountry} title='Packing' />
+                    <ServicesArea images={images.IndianRivarArea} title='Loading' />
+
+
+
+                    <ServicesArea images={images.StLuice} title='Unloading' />
+                    <ServicesArea images={images.OkeechobeeCountry} title='Delivery' />
+
+                  </View>
                 </ScrollView>
 
 
