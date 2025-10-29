@@ -28,8 +28,6 @@ export default function TabLayout() {
                 tabBarActiveTintColor: '#00D2FF',
                 tabBarInactiveTintColor: '#9CA3AF',
                 tabBarStyle: {
-                    borderTopLeftRadius: 20,
-                    borderTopRightRadius: 20,
                     height: 100,
                     position: 'absolute',
                     backgroundColor: 'white',
@@ -83,13 +81,13 @@ export default function TabLayout() {
                 }}
             />
             <Tabs.Screen
-                name='Message'
+                name='Contact'
                 options={{
-                    title: 'Messages',
+                    title: 'Contact',
                     tabBarIcon: ({ focused }) => (
                         <TabBarIcon
                             focused={focused}
-                            title="Messages"
+                            title="Contact"
                             icon={
                                 <MaterialCommunityIcons
                                 name="message-processing-outline"
