@@ -5,7 +5,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { router } from 'expo-router';
 import React, { useEffect, useRef } from 'react';
 
-import { Animated, Easing, Image, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Alert, Animated, Easing, Image, Linking, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
@@ -29,7 +29,21 @@ const Home = () => {
     outputRange: ['0deg', '360deg'],
   });
 
+  const phoneNumber = '+8801837046470';
 
+  const handleCall = () => {
+    const phoneUrl = `tel:${phoneNumber}`;
+
+    Linking.canOpenURL(phoneUrl)
+      .then((supported) => {
+        if (supported) {
+          return Linking.openURL(phoneUrl);
+        } else {
+          Alert.alert('Error', 'Phone dialer is not available');
+        }
+      })
+      .catch((err) => console.error('Error opening dialer:', err));
+  };
 
   return (
 
@@ -90,7 +104,7 @@ const Home = () => {
               <View className='px-6'>
                 <View className='rounded-2xl overflow-hidden mb-6' >
                   <Image
-                    source={images.cardBackground}
+                    source={images.HomeCard}
                     className='w-full h-full absolute'
                     resizeMode="cover"
                   />
@@ -107,20 +121,20 @@ const Home = () => {
                       </Text>
                     </View>
                     <TouchableOpacity
-                      onPress={() => router.navigate("/Sign-In")}
+                      onPress={handleCall}
                       className='bg-cyan-400 py-3 px-12 rounded-lg self-start' activeOpacity={0.8}>
                       <Text className='text-white font-bold text-xl'>
                         Call Us
                       </Text>
                     </TouchableOpacity>
                   </View>
-                  <View className='absolute right-0 left-56 bottom-2 w-56 h-56'>
+                  {/*<View className='absolute right-0 left-56 bottom-2 w-56 h-56'>
                     <Image
                       source={images.movingTruck}
                       className='w-full h-full'
                       resizeMode="contain"
                     />
-                  </View>
+                  </View>*/}
                 </View>
                 <TouchableOpacity className='bg-cyan-400 py-5 rounded-2xl my-4' activeOpacity={0.8}>
                   <Text className='text-white text-center font-bold text-xl'>
@@ -138,7 +152,7 @@ const Home = () => {
                       Our Services
                     </Text>
                     <TouchableOpacity
-                      onPress={() => router.navigate("/Services")}
+                      onPress={() => router.navigate("/Service")}
 
                     >
                       <Text className='text-cyan-400 font-semibold text-xl'>
@@ -192,7 +206,7 @@ const Home = () => {
 
                   horizontal={true}
                   showsHorizontalScrollIndicator={false}
-                  className="mb-4 bg-white px-6 mr-4">
+                  className="mb-4 bg-white px-6">
                   <Services images={images.services1} title='Packing' rating='4.8' review='10000' />
                   <Services images={images.services2} title='Loading' rating='4.8' review='10000' />
                   <Services images={images.services3} title='Loading' rating='4.8' review='10000' />
@@ -208,18 +222,13 @@ const Home = () => {
                 <ScrollView
                   horizontal={true}
                   showsHorizontalScrollIndicator={false}
-                  className=" bg-white px-6 mr-4" >
-                  <View className='flex-row pr-6'>
+                  className=" bg-white px-6" >
+                  <ServicesArea images={images.BrevaryCountry} title='Packing' />
+                  <ServicesArea images={images.IndianRivarArea} title='Loading' />
+                  <ServicesArea images={images.StLuice} title='Unloading' />
+                  <ServicesArea images={images.OkeechobeeCountry} title='Delivery' />
 
-                    <ServicesArea images={images.BrevaryCountry} title='Packing' />
-                    <ServicesArea images={images.IndianRivarArea} title='Loading' />
 
-
-
-                    <ServicesArea images={images.StLuice} title='Unloading' />
-                    <ServicesArea images={images.OkeechobeeCountry} title='Delivery' />
-
-                  </View>
                 </ScrollView>
 
 
