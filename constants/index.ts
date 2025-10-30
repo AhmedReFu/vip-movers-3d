@@ -35,9 +35,11 @@ import services4 from "@/assets/images/services4.png";
 import StLuice from "@/assets/images/StLuice.jpg";
 import successIcon from "@/assets/images/successicon.png";
 import unloading from "@/assets/images/unloading.png";
+import HomeCard from "@/assets/images/HomeCard.png";
 
 export const images = {
   icon,
+  HomeCard,
   successIcon,
   BrevaryCountry,
   IndianRivarArea,
