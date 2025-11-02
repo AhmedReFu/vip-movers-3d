@@ -9,11 +9,11 @@ type OnBoardingProps = {
 const ServicesArea = ({ images, title, }: OnBoardingProps) => {
     return (
         <TouchableOpacity
-            className='bg-gray-700 pr-4'
+            className='bg-white pr-6'
             activeOpacity={0.8}
         >
-            <View className=' h-64 pr-6'>
-                <Image source={images} className='w-56 h-44 rounded-xl' />
+            <View className='mr-2'>
+                <Image source={images} className='w-64 h-44 rounded-xl' resizeMode='cover' />
                 <Text className='text-2xl my-2'>{title}</Text>
             </View>
 

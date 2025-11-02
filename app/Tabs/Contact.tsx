@@ -1,16 +1,16 @@
 import ContactDetails from '@/components/ContactDetails';
 import { images } from '@/constants';
 import React from 'react';
-import { Image, Text, View } from 'react-native';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { Image, ScrollView, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Contact = () => {
 
 
   return (
 
-    <SafeAreaProvider>
       <SafeAreaView style={{ flex: 1, backgroundColor: "#00D2FF" }}>
+      <ScrollView style={{ marginBottom: 20, backgroundColor: "white" }}>
         <View className=''>
           <View className='bg-white h-full px-6 pt-20'>
             <Text className='text-4xl font-bold my-4'>Contact Details</Text>
@@ -25,8 +25,8 @@ const Contact = () => {
             </View>
           </View>
         </View>
-      </SafeAreaView>
-    </SafeAreaProvider>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 

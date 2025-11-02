@@ -51,7 +51,7 @@ const SignIn = () => {
               </TouchableOpacity>
             </View>
             <TouchableOpacity
-              onPress={() => router.navigate("/AllowLocation")}
+              onPress={() => router.navigate("/Permission/AllowLocation")}
               className="bg-sky-400 py-6 rounded-xl my-2"
               activeOpacity={0.8}
             >
@@ -63,7 +63,7 @@ const SignIn = () => {
               <Text className=" text-xl text-gray-700">
                 Don&#39;t have an account?
               </Text>
-              <Link href="/Sign-Up" className=" text-[#00D2FF] text-xl font-semibold">Sign Up</Link>
+              <Link href="/Auth/Sign-Up" className=" text-[#00D2FF] text-xl font-semibold">Sign Up</Link>
             </View>
             <View className="flex-row items-center gap-8 justify-items-center max-w-full mt-10">
               <Image source={images.line} className="border-gray-500" />
