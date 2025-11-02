@@ -136,7 +136,10 @@ const Home = () => {
                     />
                   </View>*/}
                 </View>
-                <TouchableOpacity className='bg-cyan-400 py-5 rounded-2xl my-4' activeOpacity={0.8}>
+                <TouchableOpacity
+                  onPress={() => router.navigate("/Donation/Donation")}
+                  className='bg-cyan-400 py-5 rounded-2xl my-4'
+                  activeOpacity={0.8}>
                   <Text className='text-white text-center font-bold text-xl'>
                     Donation
                   </Text>
@@ -152,7 +155,7 @@ const Home = () => {
                       Our Services
                     </Text>
                     <TouchableOpacity
-                      onPress={() => router.navigate("/Service")}
+                      onPress={() => router.navigate("/Services/Service")}
 
                     >
                       <Text className='text-cyan-400 font-semibold text-xl'>
@@ -188,33 +191,35 @@ const Home = () => {
                   </View>
                 </View>
               </View>
-              <View className='bg-white mb-12'>
-                <View className=' flex-row items-center justify-between my-10 px-6'>
-                  <Text className='text-2xl font-bold text-gray-800'>
-                    Popular Services
-                  </Text>
-                  <TouchableOpacity
-                    onPress={() => router.navigate("/Services")}
-
-                  >
-                    <Text className='text-cyan-400 font-bold text-2xl'>
-                      View all
+              <View className='bg-white mb-10 '>
+                <View className=''>
+                  <View className=' flex-row items-center justify-between my-6 px-6'>
+                    <Text className='text-2xl font-bold text-gray-800'>
+                      Popular Services
                     </Text>
-                  </TouchableOpacity>
-                </View>
-                <ScrollView
+                    <TouchableOpacity
+                      onPress={() => router.navigate("/Services/Services")}
 
-                  horizontal={true}
-                  showsHorizontalScrollIndicator={false}
-                  className="mb-4 bg-white px-6">
-                  <Services images={images.services1} title='Packing' rating='4.8' review='10000' />
-                  <Services images={images.services2} title='Loading' rating='4.8' review='10000' />
-                  <Services images={images.services3} title='Loading' rating='4.8' review='10000' />
-                  <Services images={images.services4} title='Unloading' rating='4.9' review='67,000' />
-                </ScrollView>
+                    >
+                      <Text className='text-cyan-400 font-bold text-2xl'>
+                        View all
+                      </Text>
+                    </TouchableOpacity>
+                  </View>
+                  <ScrollView
+
+                    horizontal={true}
+                    showsHorizontalScrollIndicator={false}
+                    className="mb-4 bg-white px-6">
+                    <Services images={images.services1} title='Packing' rating='4.8' review='10000' />
+                    <Services images={images.services2} title='Loading' rating='4.8' review='10000' />
+                    <Services images={images.services3} title='Loading' rating='4.8' review='10000' />
+                    <Services images={images.services4} title='Unloading' rating='4.9' review='67,000' />
+                  </ScrollView>
+                </View>
               </View>
-              <View className='bg-white mb-20'>
-                <View className=' flex-row columns-2 items-center justify-between my-6 px-6'>
+              <View className='bg-white mb-16'>
+                <View className='items-start my-6 px-6'>
                   <Text className='text-2xl font-bold text-gray-800'>
                     Our local service area
                   </Text>

@@ -31,7 +31,7 @@ const AllowLocation = () => {
         setShowSuccessModal(false);
         // Navigate to home screen
         setTimeout(() => {
-            router.replace('/(tabs)'); // Update this to your home screen route
+            router.replace('/Tabs'); // Update this to your home screen route
         }, 200);
     };
 
