@@ -2,6 +2,7 @@ import { images } from "@/constants";
 import { Ionicons } from "@expo/vector-icons";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { router } from "expo-router";
 import React, { useState } from "react";
 import { Image, Pressable, Switch, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -33,13 +34,13 @@ const Profile = () => {
         </View>
 
         {/* Section Title */}
-        <Text className="text-lg font-bold text-gray-800 mb-3 mt-4">General</Text>
+        <Text className="text-2xl font-bold text-gray-800 mb-3 mt-4">General</Text>
 
         {/* Menu Items */}
         <View className="space-y-6">
 
           {/* Edit Profile */}
-          <Pressable className="flex-row items-center justify-between">
+          <Pressable className="flex-row items-center justify-between my-4" onPress={() => router.navigate('/Profile/EditProfile')}>
             <View className="flex-row items-center space-x-3">
               <Ionicons name="person-outline" size={22} />
               <Text className="text-[17px] text-gray-800">Edit Profile</Text>
@@ -48,7 +49,7 @@ const Profile = () => {
           </Pressable>
 
           {/* Language */}
-          <Pressable className="flex-row items-center justify-between">
+          <Pressable className="flex-row items-center justify-between my-4">
             <View className="flex-row items-center space-x-3">
               <MaterialIcons name="language" size={22} />
               <Text className="text-[17px] text-gray-800">Language</Text>
@@ -57,7 +58,7 @@ const Profile = () => {
           </Pressable>
 
           {/* Push Notifications */}
-          <View className="flex-row items-center justify-between">
+          <View className="flex-row items-center justify-between my-3">
             <View className="flex-row items-center space-x-3">
               <Ionicons name="notifications-outline" size={22} />
               <Text className="text-[17px] text-gray-800">
@@ -73,7 +74,7 @@ const Profile = () => {
           </View>
 
           {/* Help Center */}
-          <Pressable className="flex-row items-center justify-between">
+          <Pressable className="flex-row items-center justify-between my-4">
             <View className="flex-row items-center space-x-3">
               <MaterialIcons name="help-outline" size={22} />
               <Text className="text-[17px] text-gray-800">Help Center</Text>
@@ -83,7 +84,7 @@ const Profile = () => {
         </View>
 
         {/* Logout */}
-        <Pressable className="flex-row items-center mt-10 space-x-3">
+        <Pressable className="flex-row items-center space-x-3 my-4">
           <AntDesign name="logout" size={22} color="red" />
           <Text className="text-[17px] font-semibold text-red-500">Logout</Text>
         </Pressable>

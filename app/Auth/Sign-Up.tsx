@@ -67,7 +67,7 @@ const SignUp = () => {
               <Text className=" text-xl text-gray-700">
                 Already have an account?
               </Text>
-              <Link href="/Sign-In" className=" text-[#00D2FF] text-xl font-semibold">Sign In</Link>
+              <Link href="/Auth/Sign-In" className=" text-[#00D2FF] text-xl font-semibold">Sign In</Link>
             </View>
             <View className="flex-row items-center gap-8 justify-items-center max-w-full">
               <Image source={images.line} className="border-gray-500" />
