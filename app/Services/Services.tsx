@@ -1,6 +1,7 @@
 import TopBar from '@/components/TopBar'
 import { images } from '@/constants'
 import FontAwesome from '@expo/vector-icons/FontAwesome'
+import { router } from 'expo-router'
 import React from 'react'
 import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
@@ -55,34 +56,36 @@ const Services = () => {
                 style={{ backgroundColor: "white" }}
             >
                 {services.map((service) => (
-                    <View
-                        key={service.id}
-                        className="flex-row bg-white rounded-2xl shadow-sm mb-5 overflow-hidden"
-                        style={{
-                            elevation: 6,
-                            shadowColor: '#000',
-                            shadowOpacity: 0.8,
-                            shadowRadius: 0.3,
+                    <TouchableOpacity onPress={() => router.navigate('/Services/ServicesDetails')} key={service.id}>
+                        <View
+                            key={service.id}
+                            className="flex-row bg-white rounded-2xl shadow-sm mb-5 overflow-hidden"
+                            style={{
+                                elevation: 6,
+                                shadowColor: '#000',
+                                shadowOpacity: 0.8,
+                                shadowRadius: 0.3,
 
-                        }}
-                    >
-                        <Image
-                            source={service.image}
-                            className="w-44 h-28 rounded-xl m-3"
-                            resizeMode="cover"
-                        />
-                        <View className="flex-1 justify-center px-2">
-                            <Text className="text-xl font-semibold mb-1">
-                                {service.title}
-                            </Text>
-                            <View className="flex-row items-center mb-2">
-                                <FontAwesome name="star" size={16} color="#FB9400" />
-                                <Text className="ml-1 text-gray-700 font-medium">4.9</Text>
-                                <Text className="text-gray-500 ml-1">| 6,182 reviews</Text>
+                            }}
+                        >
+                            <Image
+                                source={service.image}
+                                className="w-44 h-28 rounded-xl m-3"
+                                resizeMode="cover"
+                            />
+                            <View className="flex-1 justify-center px-2">
+                                <Text className="text-xl font-semibold mb-1">
+                                    {service.title}
+                                </Text>
+                                <View className="flex-row items-center mb-2">
+                                    <FontAwesome name="star" size={16} color="#FB9400" />
+                                    <Text className="ml-1 text-gray-700 font-medium">4.9</Text>
+                                    <Text className="text-gray-500 ml-1">| 6,182 reviews</Text>
+                                </View>
+                                <Text className="text-primary text-lg font-bold">$19</Text>
                             </View>
-                            <Text className="text-primary text-lg font-bold">$19</Text>
                         </View>
-                    </View>
+                    </TouchableOpacity>
                 ))}
             </ScrollView>
         </SafeAreaView>
