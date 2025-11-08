@@ -9,6 +9,7 @@ import emailIcon from "@/assets/images/emailIcon.png";
 import eyeIcon from "@/assets/images/eyeIcon.png";
 import facebook from "@/assets/images/facebook.png";
 import filter from "@/assets/images/filter.png";
+import Flag from "@/assets/images/flag.png";
 import google from "@/assets/images/google.png";
 import HomeCard from "@/assets/images/HomeCard.png";
 import icon from "@/assets/images/icon.png";
@@ -45,7 +46,14 @@ export const images = {
   Wallet,
   Offer,
   HomeCard,
+
+  Flag,
+  Wallet,
   Category,
+  Offer,
+
+  Category,
+
   successIcon,
   BrevaryCountry,
   IndianRivarArea,

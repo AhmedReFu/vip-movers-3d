@@ -31,3 +31,25 @@ export interface TabBarIconProps {
   icon: React.ReactNode;
   title: string;
 }
+
+export type BookingStatus = "active" | "completed" | "cancelled";
+
+export interface LanguageCardProps {
+  flag: string;
+  name: string;
+  isSelected: boolean;
+  onPress: () => void;
+}
+
+export type NotificationSettingsType = {
+  general: boolean;
+  sound: boolean;
+  vibrate: boolean;
+  messages: boolean;
+  updates: boolean;
+  offers: boolean;
+  reminders: boolean;
+  email: boolean;
+};
+
+export type NotificationKey = keyof NotificationSettingsType;
