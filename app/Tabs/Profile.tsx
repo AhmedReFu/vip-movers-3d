@@ -11,32 +11,24 @@ import {
   Switch,
   Text,
   TouchableOpacity,
-  View
+  View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-
 const Profile = () => {
-
   const [isEnabled, setIsEnabled] = useState(true);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
 
-
-  const handleNotificationPress = () => {
-    router.push("/Profile/NotificationSettings");
-  };
+  const handleNotificationPress = () => router.push("/Profile/NotificationSettings");
 
   const handleLogout = () => {
     setShowLogoutModal(false);
     alert("Logged out!");
   };
 
-
-
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#00D2FF" }}>
       <View className="flex-1 bg-white px-6">
-        {/* Profile Header */}
         <View className="items-center mt-14 mb-6">
           <View className="relative">
             <Image source={images.ahmedReFat} className="w-32 h-32 rounded-full" />
@@ -49,27 +41,14 @@ const Profile = () => {
             mdnazmulislam5608@gmail.com
           </Text>
         </View>
+        <Text className="text-2xl font-bold mb-3 mt-4 text-[#00D2FF]">General</Text>
 
-
-        {/* General Section */}
-        <Text className="text-2xl font-bold mb-3 mt-4 text-[#00D2FF]">
-          General
-        </Text>
         <View className="space-y-6">
+
           <TouchableOpacity
             className="flex-row items-center justify-between my-4"
-            onPress={() => router.navigate("/Profile/EditProfile")}
+            onPress={() => router.push("/Profile/EditProfile")}
           >
-
-        {/* Section Title */}
-        <Text className="text-2xl font-bold text-gray-800 mb-3 mt-4">General</Text>
-
-        {/* Menu Items */}
-        <View className="space-y-6">
-
-          {/* Edit Profile */}
-          <Pressable className="flex-row items-center justify-between my-4" onPress={() => router.navigate('/Profile/EditProfile')}>
-
             <View className="flex-row items-center space-x-3">
               <Ionicons name="person-outline" size={22} />
               <Text className="text-[18px] ml-2">Edit Profile</Text>
@@ -77,52 +56,34 @@ const Profile = () => {
             <Ionicons name="chevron-forward" size={22} color="black" />
           </TouchableOpacity>
 
-
           <TouchableOpacity
             className="flex-row items-center justify-between my-4"
-            onPress={() => router.navigate("/Profile/Language")}
+            onPress={() => router.push("/Profile/Language")}
           >
-
-          {/* Language */}
-          <Pressable className="flex-row items-center justify-between my-4">
-
             <View className="flex-row items-center space-x-3">
               <MaterialIcons name="language" size={22} />
               <Text className="text-[18px] ml-2">Language</Text>
             </View>
             <Ionicons name="chevron-forward" size={22} color="black" />
           </TouchableOpacity>
-
-
-          <TouchableOpacity
-            className="flex-row items-center justify-between my-4"
-            onPress={handleNotificationPress}
-          >
-
-          {/* Push Notifications */}
-          <View className="flex-row items-center justify-between my-3">
-
-            <View className="flex-row items-center space-x-3">
-              <Ionicons name="notifications-outline" size={22} />
-              <Text className="text-[18px] ml-2">Push Notifications</Text>
+          <TouchableOpacity onPress={() => router.push("/Profile/NotificationSettings")}>
+            <View className="flex-row items-center justify-between my-4">
+              <View className="flex-row items-center space-x-3">
+                <Ionicons name="notifications-outline" size={22} />
+                <Text className="text-[18px] ml-2">Push Notifications</Text>
+              </View>
+              <Switch
+                trackColor={{ false: "#D1D5DB", true: "#00D2FF" }}
+                thumbColor="white"
+                value={isEnabled}
+                onValueChange={setIsEnabled}
+              />
             </View>
-            <Switch
-              trackColor={{ false: "#D1D5DB", true: "#00D2FF" }}
-              thumbColor="white"
-              value={isEnabled}
-              onValueChange={setIsEnabled}
-            />
           </TouchableOpacity>
-
-
           <TouchableOpacity
-            onPress={() => router.navigate("/Profile/HelpCenter")}
             className="flex-row items-center justify-between my-4"
+            onPress={() => router.push("/Profile/HelpCenter")}
           >
-
-          {/* Help Center */}
-          <Pressable className="flex-row items-center justify-between my-4">
-
             <View className="flex-row items-center space-x-3">
               <MaterialIcons name="help-outline" size={22} />
               <Text className="text-[18px] ml-2">Help Center</Text>
@@ -130,9 +91,6 @@ const Profile = () => {
             <Ionicons name="chevron-forward" size={22} color="black" />
           </TouchableOpacity>
         </View>
-
-
-        {/* Logout Button */}
         <TouchableOpacity
           className="flex-row items-center space-x-3 my-6"
           onPress={() => setShowLogoutModal(true)}
@@ -142,16 +100,9 @@ const Profile = () => {
             Logout
           </Text>
         </TouchableOpacity>
-
-        {/* Logout */}
-        <Pressable className="flex-row items-center space-x-3 my-4">
-          <AntDesign name="logout" size={22} color="red" />
-          <Text className="text-[17px] font-semibold text-red-500">Logout</Text>
-        </Pressable>
-
       </View>
       <Modal
-        animationType="none"
+        animationType="fade"
         transparent
         visible={showLogoutModal}
         onRequestClose={() => setShowLogoutModal(false)}
@@ -161,7 +112,7 @@ const Profile = () => {
             <Text className="text-red-500 text-center text-2xl font-bold mb-4">
               Logout
             </Text>
-            <View className='bg-gray-300 w-full h-[1px] my-4' />
+            <View className="bg-gray-300 w-full h-[1px] my-4" />
             <Text className="text-center text-xl font-bold text-gray-600 my-6">
               Are you sure you want to log out?
             </Text>

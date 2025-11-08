@@ -52,6 +52,7 @@ const Home = () => {
         <View className='flex-1 bg-[#00D2FF] '>
           <View className='px-6'>
             <View className='flex-row items-center justify-between my-6'>
+              <TouchableOpacity onPress={() => router.navigate('/Profile/EditProfile')}>
               <View className='relative w-[72px] h-[72px]'>
                 <Animated.View
                   style={{
@@ -61,19 +62,22 @@ const Home = () => {
                 />
 
                 {/* Static Image in Center */}
-                <View className='absolute inset-0 items-center justify-center'>
-                  <Image
-                    source={images.ahmedReFat}
-                    className='w-16 h-16 rounded-full'
-                  />
+
+                  <View className='absolute inset-0 items-center justify-center'>
+                    <Image
+                      source={images.ahmedReFat}
+                      className='w-16 h-16 rounded-full'
+                    />
+                  </View>
+
                 </View>
-              </View>
+              </TouchableOpacity>
               <View className='grow mx-2'>
                 <Text className='text-xl text-white'>Hello,</Text>
                 <Text className='text-3xl text-white font-semibold'>Ahmed ReFat</Text>
               </View>
 
-              <TouchableOpacity onPress={() => router.navigate("/Notification/Notification")} activeOpacity={0.8}>
+
 
               <TouchableOpacity
                 onPress={() => router.navigate("/Notification/Notification")}
