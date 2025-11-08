@@ -72,7 +72,13 @@ const Home = () => {
                 <Text className='text-xl text-white'>Hello,</Text>
                 <Text className='text-3xl text-white font-semibold'>Ahmed ReFat</Text>
               </View>
+
               <TouchableOpacity onPress={() => router.navigate("/Notification/Notification")} activeOpacity={0.8}>
+
+              <TouchableOpacity
+                onPress={() => router.navigate("/Notification/Notification")}
+              >
+
                 <View className='relative'>
                   <View className='bg-white w-14 h-14 rounded-full items-center justify-center'>
                     <Ionicons name="notifications-outline" size={30} color="#00D2FF" />

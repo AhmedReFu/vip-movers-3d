@@ -43,11 +43,17 @@ import Wallet from "@/assets/images/wallet.png";
 
 export const images = {
   icon,
+  Wallet,
+  Offer,
   HomeCard,
+
   Flag,
   Wallet,
   Category,
   Offer,
+
+  Category,
+
   successIcon,
   BrevaryCountry,
   IndianRivarArea,

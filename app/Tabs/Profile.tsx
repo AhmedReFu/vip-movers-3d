@@ -50,6 +50,7 @@ const Profile = () => {
           </Text>
         </View>
 
+
         {/* General Section */}
         <Text className="text-2xl font-bold mb-3 mt-4 text-[#00D2FF]">
           General
@@ -59,6 +60,16 @@ const Profile = () => {
             className="flex-row items-center justify-between my-4"
             onPress={() => router.navigate("/Profile/EditProfile")}
           >
+
+        {/* Section Title */}
+        <Text className="text-2xl font-bold text-gray-800 mb-3 mt-4">General</Text>
+
+        {/* Menu Items */}
+        <View className="space-y-6">
+
+          {/* Edit Profile */}
+          <Pressable className="flex-row items-center justify-between my-4" onPress={() => router.navigate('/Profile/EditProfile')}>
+
             <View className="flex-row items-center space-x-3">
               <Ionicons name="person-outline" size={22} />
               <Text className="text-[18px] ml-2">Edit Profile</Text>
@@ -66,10 +77,15 @@ const Profile = () => {
             <Ionicons name="chevron-forward" size={22} color="black" />
           </TouchableOpacity>
 
+
           <TouchableOpacity
             className="flex-row items-center justify-between my-4"
             onPress={() => router.navigate("/Profile/Language")}
           >
+
+          {/* Language */}
+          <Pressable className="flex-row items-center justify-between my-4">
+
             <View className="flex-row items-center space-x-3">
               <MaterialIcons name="language" size={22} />
               <Text className="text-[18px] ml-2">Language</Text>
@@ -77,10 +93,15 @@ const Profile = () => {
             <Ionicons name="chevron-forward" size={22} color="black" />
           </TouchableOpacity>
 
+
           <TouchableOpacity
             className="flex-row items-center justify-between my-4"
             onPress={handleNotificationPress}
           >
+
+          {/* Push Notifications */}
+          <View className="flex-row items-center justify-between my-3">
+
             <View className="flex-row items-center space-x-3">
               <Ionicons name="notifications-outline" size={22} />
               <Text className="text-[18px] ml-2">Push Notifications</Text>
@@ -93,10 +114,15 @@ const Profile = () => {
             />
           </TouchableOpacity>
 
+
           <TouchableOpacity
             onPress={() => router.navigate("/Profile/HelpCenter")}
             className="flex-row items-center justify-between my-4"
           >
+
+          {/* Help Center */}
+          <Pressable className="flex-row items-center justify-between my-4">
+
             <View className="flex-row items-center space-x-3">
               <MaterialIcons name="help-outline" size={22} />
               <Text className="text-[18px] ml-2">Help Center</Text>
@@ -104,6 +130,7 @@ const Profile = () => {
             <Ionicons name="chevron-forward" size={22} color="black" />
           </TouchableOpacity>
         </View>
+
 
         {/* Logout Button */}
         <TouchableOpacity
@@ -115,6 +142,13 @@ const Profile = () => {
             Logout
           </Text>
         </TouchableOpacity>
+
+        {/* Logout */}
+        <Pressable className="flex-row items-center space-x-3 my-4">
+          <AntDesign name="logout" size={22} color="red" />
+          <Text className="text-[17px] font-semibold text-red-500">Logout</Text>
+        </Pressable>
+
       </View>
       <Modal
         animationType="none"
