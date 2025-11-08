@@ -72,30 +72,34 @@ const Home = () => {
                 <Text className='text-xl text-white'>Hello,</Text>
                 <Text className='text-3xl text-white font-semibold'>Ahmed ReFat</Text>
               </View>
-              <View className='relative'>
-                <View className='bg-white w-14 h-14 rounded-full items-center justify-center'>
-                  <Ionicons name="notifications-outline" size={30} color="#00D2FF" />
+              <TouchableOpacity onPress={() => router.navigate("/Notification/Notification")} activeOpacity={0.8}>
+                <View className='relative'>
+                  <View className='bg-white w-14 h-14 rounded-full items-center justify-center'>
+                    <Ionicons name="notifications-outline" size={30} color="#00D2FF" />
+                  </View>
+                  <View className="absolute top-3 right-3 w-4 h-4 bg-[#00D2FF] rounded-full border-2 border-white" />
                 </View>
-                <View className="absolute top-3 right-3 w-4 h-4 bg-[#00D2FF] rounded-full border-2 border-white" />
-              </View>
+              </TouchableOpacity>
             </View>
             <View className='mb-10'>
-              <View className="rounded-xl bg-white w-full pl-4 pr-4 flex-row items-center justify-between">
-                <View className="flex-row items-center flex-1">
-                  <Ionicons name="search" size={24} color="gray" />
-                  <TextInput
-                    autoCapitalize="none"
-                    autoCorrect={false}
-                    className="h-16 text-black flex-1 pl-3 font-medium text-base"
-                    placeholder="Search"
-                    placeholderTextColor="#9CA3AF"
-                  />
+              <TouchableOpacity onPress={() => router.navigate("/Search/Search")}>
+                <View className="rounded-xl bg-white w-full pl-4 pr-4 flex-row items-center justify-between">
+                  <View className="flex-row items-center flex-1">
+                    <Ionicons name="search" size={24} color="gray" />
+                    <TextInput
+                      autoCapitalize="none"
+                      autoCorrect={false}
+                      className="h-16 text-black flex-1 pl-3 font-medium text-base"
+                      placeholder="Search"
+                      placeholderTextColor="#9CA3AF"
+                    />
+                  </View>
+                  <View className="flex-row items-center gap-2">
+                    <View className="w-px h-6 bg-gray-300" />
+                    <Image source={images.filter} className="w-6 h-6" />
+                  </View>
                 </View>
-                <View className="flex-row items-center gap-2">
-                  <View className="w-px h-6 bg-gray-300" />
-                  <Image source={images.filter} className="w-6 h-6" />
-                </View>
-              </View>
+              </TouchableOpacity>
             </View>
           </View>
 

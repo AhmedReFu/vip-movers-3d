@@ -9,7 +9,7 @@ export default function Index() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      router.navigate("/OnBoarding/OnBoardingFirst")
+      router.navigate("/Tabs")
     }, 2000);
     return () => clearTimeout(timer);
   }, [router]);
