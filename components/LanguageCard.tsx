@@ -15,13 +15,11 @@ const LanguageCard = ({ flag, name, isSelected, onPress }: LanguageCardProps) =>
                     : 'bg-white border-gray-200'
                 }`}
         >
-            {/* Left Side: Flag + Name */}
             <View className="flex-row items-center">
                 <Text className="text-3xl mr-4">{flag}</Text>
                 <Text className="text-lg font-medium text-gray-800">{name}</Text>
             </View>
 
-            {/* Right Side: Checkbox */}
             <View className={`w-6 h-6 rounded-full border-2 items-center justify-center ${isSelected
                     ? 'bg-[#00D2FF] border-[#00D2FF]'
                     : 'bg-white border-gray-300'

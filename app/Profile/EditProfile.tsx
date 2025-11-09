@@ -31,27 +31,23 @@ const EditProfile = () => {
                 className="flex-1 bg-white px-6"
                 showsVerticalScrollIndicator={false}
             >
-                {/* Profile Picture */}
+
                 <View className="items-center my-10">
                     <View className="relative">
-                        <Image
-                            source={images.ahmedReFat}
-                            className="w-28 h-28 rounded-full"
-                        />
-                        <TouchableOpacity
-                            onPress={handleImagePick}
-                            className="absolute bottom-0 right-0 w-9 h-9 bg-[#00D2FF] rounded-full items-center justify-center border-[3px] border-white"
-                        >
-                            <Ionicons name="camera" size={18} color="white" />
-                        </TouchableOpacity>
+                        <View className=''>
+                            <Image source={images.ahmedReFat} className='rounded-full size-28 absolute ' />
+                        </View>
+                        <View className="w-28 h-28 rounded-full  items-center justify-center">
+                            <Ionicons name="camera-outline" size={30} color="white" />
+                        </View>
                     </View>
                 </View>
 
-                {/* Form Fields */}
+
                 <View className="mb-6">
-                    {/* Full Name */}
+
                     <View className="mb-6">
-                        <Text className="text-lg font-medium text-gray-900 mb-2">
+                        <Text className="text-lg font-bold text-gray-900 mb-2">
                             Full Name
                         </Text>
                         <View className="bg-gray-50 border border-gray-200 rounded-2xl">
@@ -60,14 +56,13 @@ const EditProfile = () => {
                                 onChangeText={setFullName}
                                 placeholder="Enter your full name"
                                 placeholderTextColor="#9CA3AF"
-                                className="px-4 py-4 text-gray-800 text-base"
+                                className=" p-5 text-gray-800 font-bold text-lg"
                             />
                         </View>
                     </View>
 
-                    {/* Email Address */}
                     <View className="mb-6">
-                        <Text className="text-lg font-medium text-gray-900 mb-2">
+                        <Text className="text-lg font-bold text-gray-900 mb-2">
                             Email Address
                         </Text>
                         <View className="bg-gray-50 border border-gray-200 rounded-2xl">
@@ -78,14 +73,13 @@ const EditProfile = () => {
                                 placeholderTextColor="#9CA3AF"
                                 keyboardType="email-address"
                                 autoCapitalize="none"
-                                className="px-4 py-4 text-gray-800 text-base"
+                                className="p-5 text-gray-800 font-bold text-lg"
                             />
                         </View>
                     </View>
 
-                    {/* Phone Number */}
                     <View className="mb-6">
-                        <Text className="text-lg font-medium text-gray-900 mb-2">
+                        <Text className="text-lg font-bold text-gray-900 mb-2">
                             Phone Number
                         </Text>
                         <View className="bg-gray-50 border border-gray-200 rounded-2xl flex-row items-center px-4">
@@ -98,7 +92,7 @@ const EditProfile = () => {
                                 placeholder="Enter phone number"
                                 placeholderTextColor="#9CA3AF"
                                 keyboardType="phone-pad"
-                                className="flex-1 py-4 text-gray-800 text-base"
+                                className="p-5 text-gray-800 font-bold text-lg"
                             />
                         </View>
                     </View>

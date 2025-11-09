@@ -123,13 +123,12 @@ const Search = () => {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#00D2FF" }}>
       <View className="flex-1 bg-white px-6">
-        {/* Header */}
+
         <View className="py-4 flex-row items-center">
           <TopBar />
           <Text className="text-xl font-bold text-gray-800 ml-4">Search</Text>
         </View>
 
-        {/* Search Bar */}
         <View className="my-6">
           <View className="rounded-xl bg-white w-full px-4 flex-row items-center justify-between border border-[#00D2FF]">
             <View className="flex-row items-center flex-1">
@@ -150,8 +149,6 @@ const Search = () => {
             </TouchableOpacity>
           </View>
         </View>
-
-        {/* Recent Searches */}
         <ScrollView showsVerticalScrollIndicator={false}>
           <View className="flex-row justify-between my-6">
             <Text className="text-xl font-semibold">Recent</Text>
@@ -173,10 +170,9 @@ const Search = () => {
         </ScrollView>
       </View>
 
-      {/* Filter Modal */}
       <Modal visible={isFilterVisible} transparent animationType="none">
         <View className="flex-1">
-          {/* Dim Background */}
+
           <Animated.View
             className="absolute inset-0 bg-black"
             style={{
@@ -193,7 +189,6 @@ const Search = () => {
             />
           </Animated.View>
 
-          {/* Bottom Sheet */}
           <Animated.View
             className="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl"
             style={{
@@ -201,16 +196,13 @@ const Search = () => {
               height: SCREEN_HEIGHT * 0.7,
             }}
           >
-            {/* Drag Handle */}
             <View className="items-center pt-3 pb-4" {...panResponder.panHandlers}>
               <View className="w-12 h-1 bg-gray-300 rounded-full" />
             </View>
 
-            {/* Content */}
             <ScrollView className="px-6 pb-6" showsVerticalScrollIndicator={false}>
               <Text className="text-2xl font-bold text-center mb-6">Filter</Text>
 
-              {/* Categories */}
               <Text className="text-lg font-semibold mb-3">Category</Text>
               <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                 <View className="flex-row gap-2 mb-6">
@@ -231,8 +223,6 @@ const Search = () => {
                   ))}
                 </View>
               </ScrollView>
-
-              {/* Price Range */}
               <Text className="text-lg font-semibold mb-3">Price</Text>
               <View className="mb-6">
                 <View className="flex-row justify-between mb-4">
@@ -243,8 +233,6 @@ const Search = () => {
                     <Text className="text-white font-bold">${maxPrice}</Text>
                   </View>
                 </View>
-
-                {/* Custom Range Slider */}
                 <View className="h-16 justify-center px-2">
                   <View className="h-1 bg-gray-200 rounded-full">
                     <View
@@ -255,8 +243,6 @@ const Search = () => {
                       }}
                     />
                   </View>
-
-                  {/* Thumbs */}
                   <Animated.View
                     className="absolute"
                     style={{
@@ -280,8 +266,6 @@ const Search = () => {
                   </Animated.View>
                 </View>
               </View>
-
-              {/* Ratings */}
               <Text className="text-lg font-semibold mb-3">Rating</Text>
               <View className="flex-row gap-2 mb-8">
                 {[0, 5, 4, 3].map((r) => (
@@ -305,8 +289,6 @@ const Search = () => {
                   </TouchableOpacity>
                 ))}
               </View>
-
-              {/* Action Buttons */}
               <View className="flex-row gap-3">
                 <TouchableOpacity
                   onPress={handleReset}

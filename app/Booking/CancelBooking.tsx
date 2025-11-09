@@ -51,7 +51,7 @@ const CancelBooking = () => {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#00D2FF" }}>
-      {/* Header */}
+
       <View className="bg-white px-6 py-4 flex-row items-center pb-10">
         <TopBar />
         <Text className="text-xl font-bold text-gray-800 ml-4">
@@ -59,19 +59,17 @@ const CancelBooking = () => {
         </Text>
       </View>
 
-      {/* Main Content */}
       <View className='flex-1 bg-white pt-6'>
         <ScrollView
           className="flex-1 px-6"
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ paddingBottom: 120 }}
         >
-          {/* Title */}
           <Text className='text-gray-700 text-xl font-bold mb-10 leading-6'>
             Please select the reason for cancellation:
           </Text>
 
-          {/* Reasons List */}
+
           <View className="mb-10">
             {reasons.map((reason, index) => (
               <TouchableOpacity
@@ -80,7 +78,7 @@ const CancelBooking = () => {
                 className="flex-row items-center py-4"
                 activeOpacity={0.7}
               >
-                {/* Radio Button */}
+
                 <View
                   className={`w-6 h-6 rounded-full border-2 items-center justify-center mr-4 ${selectedReason === reason
                       ? 'border-cyan-400'
@@ -98,7 +96,7 @@ const CancelBooking = () => {
             ))}
           </View>
 
-          {/* Others Section */}
+
           <View className="">
             <Text className="text-gray-900 text-xl font-bold  mb-6">
               Others
@@ -116,7 +114,7 @@ const CancelBooking = () => {
           </View>
         </ScrollView>
 
-        {/* Send Button - Fixed at Bottom */}
+
         <View className="absolute bottom-0 left-0 right-0 bg-white px-6 pb-6 pt-4">
           <TouchableOpacity
             onPress={handleSend}
@@ -129,8 +127,6 @@ const CancelBooking = () => {
           </TouchableOpacity>
         </View>
       </View>
-
-      {/* Success Modal */}
       <Modal
         transparent={true}
         visible={showModal}
@@ -145,22 +141,15 @@ const CancelBooking = () => {
             style={{ transform: [{ scale: scaleAnim }] }}
             className="bg-white rounded-3xl p-10 w-full max-w-sm items-center"
           >
-            {/* Sad Emoji */}
             <View className="mb-6">
               <Text style={{ fontSize: 90 }}>😔</Text>
             </View>
-
-            {/* Title */}
             <Text className="text-gray-900 font-bold text-2xl text-center mb-4">
               We're so sad about{'\n'}your cancellation
             </Text>
-
-            {/* Description */}
             <Text className="text-gray-500 text-center text-sm mb-8 leading-5">
               We will continue to improve our service & satisfy you on the next order.
             </Text>
-
-            {/* OK Button */}
             <TouchableOpacity
               onPress={handleOk}
               className="bg-primary w-full py-5 rounded-xl"

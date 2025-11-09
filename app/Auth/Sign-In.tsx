@@ -46,7 +46,7 @@ const SignIn = () => {
             </View>
             <View className="items-end">
               <TouchableOpacity
-                onPress={() => router.navigate('/Forgot-Password')} >
+                onPress={() => router.navigate('/ForgotPassword/Forgot-Password')} >
                 <Text className="text-[#4FBF67] text-lg">Forgot password?</Text>
               </TouchableOpacity>
             </View>

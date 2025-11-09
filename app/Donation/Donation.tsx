@@ -102,7 +102,6 @@ const Donation: React.FC<DonationProps> = ({ navigation }) => {
           contentContainerStyle={{ paddingTop: 20, paddingBottom: 120 }}
           showsVerticalScrollIndicator={false}
         >
-          {/* Upload Photos */}
           <View className="mb-6">
             <Text className="text-gray-900 text-xl font-semibold mb-3">Upload Photos</Text>
 
@@ -130,8 +129,6 @@ const Donation: React.FC<DonationProps> = ({ navigation }) => {
               <Text className="text-white font-semibold text-sm">+Add More</Text>
             </TouchableOpacity>
           </View>
-
-          {/* Furniture Name */}
           <View className="mb-6">
             <Text className="text-gray-900 text-xl font-semibold mb-3">Furniture Name</Text>
             <View className="border border-gray-300 rounded-lg bg-white">
@@ -147,8 +144,6 @@ const Donation: React.FC<DonationProps> = ({ navigation }) => {
               </View>
             </View>
           </View>
-
-          {/* Donation Type */}
           <View className="mb-6">
             <Text className="text-gray-900 text-xl font-semibold mb-3">Donation Type</Text>
             <View className="border border-gray-300 rounded-lg bg-white">
@@ -166,7 +161,6 @@ const Donation: React.FC<DonationProps> = ({ navigation }) => {
             </View>
           </View>
 
-          {/* About */}
           <View className="mb-6">
             <Text className="text-gray-900 text-xl font-semibold mb-3">About</Text>
             <View className="border border-gray-300 rounded-lg bg-white">
@@ -188,7 +182,6 @@ const Donation: React.FC<DonationProps> = ({ navigation }) => {
             <Text className="text-gray-400 text-xs mt-1">{aboutLength}/200</Text>
           </View>
 
-          {/* Email */}
           <View className="mb-6">
             <Text className="text-gray-900 text-xl font-semibold mb-3">Email</Text>
             <TextInput
@@ -202,7 +195,6 @@ const Donation: React.FC<DonationProps> = ({ navigation }) => {
             />
           </View>
 
-          {/* Phone */}
           <View className="mb-6">
             <Text className="text-gray-900 text-xl font-semibold mb-3">Phone</Text>
             <TextInput
@@ -215,7 +207,6 @@ const Donation: React.FC<DonationProps> = ({ navigation }) => {
             />
           </View>
 
-          {/* Address */}
           <View className="mb-6">
             <Text className="text-gray-900 text-xl font-semibold mb-3">Address</Text>
             <TextInput
@@ -227,7 +218,6 @@ const Donation: React.FC<DonationProps> = ({ navigation }) => {
             />
           </View>
 
-          {/* City */}
           <View className="mb-6">
             <Text className="text-gray-900 text-xl font-semibold mb-3">City</Text>
             <TextInput
@@ -239,7 +229,6 @@ const Donation: React.FC<DonationProps> = ({ navigation }) => {
             />
           </View>
 
-          {/* State / Postal */}
           <View className="flex-row mb-6" style={{ gap: 12 }}>
             <View className="flex-1">
               <Text className="text-gray-900 text-xl font-semibold mb-3">State/Province</Text>
@@ -265,15 +254,13 @@ const Donation: React.FC<DonationProps> = ({ navigation }) => {
           </View>
         </ScrollView>
 
-        {/* Submit Bar */}
         <View className="absolute bottom-0 left-0 right-0 px-6 pb-6 pt-4 bg-white border-t border-gray-100">
-          <TouchableOpacity onPress={handleSubmit} className="bg-cyan-400 py-4 rounded-xl" activeOpacity={0.8}>
+          <TouchableOpacity onPress={handleSubmit} className="bg-cyan-400 p-5 rounded-xl" activeOpacity={0.8}>
             <Text className="text-white font-bold text-center text-lg">Submit</Text>
           </TouchableOpacity>
         </View>
       </View>
 
-      {/* Success Modal */}
       <Modal
         isVisible={showSuccessModal}
         animationIn="zoomIn"

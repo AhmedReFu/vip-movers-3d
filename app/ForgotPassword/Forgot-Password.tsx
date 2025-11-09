@@ -27,7 +27,7 @@ const ForgotPassword = () => {
                                 />
                             </View>
                         <TouchableOpacity
-                            onPress={()=> router.navigate('/Otp-Forgot')}
+                            onPress={() => router.navigate('/ForgotPassword/Otp-Forgot')}
                                 className="bg-sky-400 py-6 rounded-xl my-6"
                                 activeOpacity={0.8}
                             >

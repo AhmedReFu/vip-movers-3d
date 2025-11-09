@@ -108,7 +108,7 @@ const OtpForgot = () => {
       const isValid = otpCode.length === 4;
 
       if (isValid) {
-router.navigate('/New-Password')
+        router.navigate('/ForgotPassword/New-Password')
           
       } else {
         showToastMessage('Invalid OTP. Please try again.');
