@@ -7,14 +7,14 @@ import TopBar from '../../components/TopBar'
 const Services = () => {
     return (
         <SafeAreaView className='flex-1 bg-primary'>
-            <View className='flex-1 bg-white pt-10 px-6'>
+            <View className='flex-1 bg-white py-4 px-6'>
                 <View className='flex-row items-start'>
                     <TopBar />
                     <View className='ml-6'>
                         <Text className='text-3xl font-bold'>All Services</Text>
                     </View>
                 </View>
-                <View className='flex-row flex-wrap gap-6 mb-20'>
+                <View className='flex-row flex-wrap gap-6 my-10'>
                     <View className='items-center w-32 h-32'>
                         <Image source={images.packing} className='size-28' resizeMode='cover' />
                         <Text>Packing</Text>

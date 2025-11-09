@@ -59,10 +59,7 @@ const Home = () => {
                     transform: [{ rotate }],
                   }}
                   className='absolute inset-0 border-2 border-dashed border-white rounded-full'
-                />
-
-                {/* Static Image in Center */}
-
+                  />
                   <View className='absolute inset-0 items-center justify-center'>
                     <Image
                       source={images.ahmedReFat}

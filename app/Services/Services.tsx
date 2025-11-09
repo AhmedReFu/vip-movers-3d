@@ -56,10 +56,10 @@ const Services = () => {
                 style={{ backgroundColor: "white" }}
             >
                 {services.map((service) => (
-                    <TouchableOpacity onPress={() => router.navigate('/Services/ServicesDetails')} key={service.id}>
+
                         <View
                             key={service.id}
-                            className="flex-row bg-white rounded-2xl shadow-sm mb-5 overflow-hidden"
+                        className=" bg-white rounded-2xl shadow-sm mb-5 overflow-hidden"
                             style={{
                                 elevation: 6,
                                 shadowColor: '#000',
@@ -67,7 +67,8 @@ const Services = () => {
                                 shadowRadius: 0.3,
 
                             }}
-                        >
+                    >
+                        <TouchableOpacity onPress={() => router.navigate('/Services/ServicesDetails')} key={service.id} className='flex-row'>
                             <Image
                                 source={service.image}
                                 className="w-44 h-28 rounded-xl m-3"
@@ -84,8 +85,8 @@ const Services = () => {
                                 </View>
                                 <Text className="text-primary text-lg font-bold">$19</Text>
                             </View>
-                        </View>
-                    </TouchableOpacity>
+                        </TouchableOpacity>
+                    </View>
                 ))}
             </ScrollView>
         </SafeAreaView>
