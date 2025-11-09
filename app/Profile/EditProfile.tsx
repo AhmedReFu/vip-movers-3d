@@ -31,21 +31,23 @@ const EditProfile = () => {
                 className="flex-1 bg-white px-6"
                 showsVerticalScrollIndicator={false}
             >
-
                 <View className="items-center my-10">
                     <View className="relative">
-                        <View className=''>
-                            <Image source={images.ahmedReFat} className='rounded-full size-28 absolute ' />
-                        </View>
-                        <View className="w-28 h-28 rounded-full  items-center justify-center">
+                        <Image
+                            source={images.ahmedReFat}
+                            className="rounded-full size-32"
+                        />
+                        <View
+                            className="absolute inset-0 rounded-full bg-black/50"
+                            style={{ zIndex: 1 }}
+                        />
+                        <View className="absolute inset-0 rounded-full items-center justify-center" style={{ zIndex: 2 }}>
                             <Ionicons name="camera-outline" size={30} color="white" />
                         </View>
                     </View>
                 </View>
 
-
                 <View className="mb-6">
-
                     <View className="mb-6">
                         <Text className="text-lg font-bold text-gray-900 mb-2">
                             Full Name
@@ -114,5 +116,7 @@ const EditProfile = () => {
         </SafeAreaView>
     );
 };
+
+
 
 export default EditProfile;

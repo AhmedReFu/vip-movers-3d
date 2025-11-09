@@ -1,15 +1,16 @@
 import { images } from "@/constants";
-import { useRouter } from "expo-router";
+import { router, useRouter } from "expo-router";
 import { useEffect } from "react";
 import { Image, Text, View } from "react-native";
 import Spinner from "../components/Spinner";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Index() {
-  const router = useRouter();
+  const navigator = useNavigation();
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      router.navigate("/OnBoarding/OnBoardingFirst")
+      router.navigate('/Tabs')
     }, 2000);
     return () => clearTimeout(timer);
   }, [router]);
