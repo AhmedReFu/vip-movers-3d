@@ -4,48 +4,50 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Calendar, DateData } from 'react-native-calendars';
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
 
 const ScheduleShifting = () => {
-    const [selectedDate, setSelectedDate] = useState<string>('2025-07-11');
+    const [selectedDate, setSelectedDate] = useState<string>('2025-11-11');
     const [selectedTime, setSelectedTime] = useState<string>('07:00 AM');
 
     const timeSlots: string[] = [
         '07:00 AM', '08:30 AM', '10:00 AM',
-        '11:00 AM', '11:00 PM', '12:00 AM',
+        '11:00 PM', '12:30 AM', '11:00 AM',
+        '12:00 AM', '12:00 PM', '09:00 AM',
     ];
 
     const onDayPress = (day: DateData) => setSelectedDate(day.dateString);
 
     const handleProceed = () => {
         // Add your navigation or submission logic here
-        console.log('Selected Date:', selectedDate);
-        console.log('Selected Time:', selectedTime);
+        alert(`Selected Date: ${selectedDate}  Selected Time: ${selectedTime}`);
+        router.navigate("/Services/Location")
     };
 
     return (
         <SafeAreaView className="flex-1 bg-gray-50">
+            <StatusBar style='dark' />
             <ScrollView
                 showsVerticalScrollIndicator={false}
-                contentContainerStyle={{ paddingBottom: 100 }}
+                contentContainerStyle={{ paddingBottom: 0 }}
             >
-                {/* Header */}
-                <View className="flex-row items-center px-5 py-4 bg-white">
+
+                <View className="flex-row items-center px-5 py-4 ">
                     <TouchableOpacity onPress={() => router.back()} className="mr-4">
                         <Ionicons name="arrow-back" size={24} color="black" />
                     </TouchableOpacity>
-                    <Text className="text-xl font-semibold text-gray-900">Schedule Shifting</Text>
+                    <Text className="text-2xl font-bold text-gray-900">Schedule Shifting</Text>
                 </View>
-
                 <View className="px-5 py-4">
-                    {/* Calendar Section */}
                     <View className="bg-white rounded-3xl shadow-sm mb-6 overflow-hidden">
                         <Calendar
+
                             current={selectedDate}
                             onDayPress={onDayPress}
                             markedDates={{
                                 [selectedDate]: {
                                     selected: true,
-                                    selectedColor: '#06B6D4',
+                                    selectedColor: '#20DFFF',
                                     selectedTextColor: 'white'
                                 },
                             }}
@@ -56,7 +58,7 @@ const ScheduleShifting = () => {
                                 selectedDayBackgroundColor: '#06B6D4',
                                 selectedDayTextColor: 'white',
                                 todayTextColor: '#06B6D4',
-                                dayTextColor: '#1F2937',
+                                dayTextColor: '#F20DFFF',
                                 textDisabledColor: '#D1D5DB',
                                 monthTextColor: '#1F2937',
                                 indicatorColor: '#06B6D4',
@@ -73,73 +75,51 @@ const ScheduleShifting = () => {
                             }}
                             style={{
                                 borderRadius: 24,
-                                padding: 10,
+                                padding: 15,
                             }}
                         />
-                    </View>
 
-                    {/* Time Picker Section */}
-                    <View>
-                        <Text className="text-lg font-bold text-gray-900 mb-4">Pick time</Text>
-                        <View className="bg-white rounded-3xl p-4 shadow-sm">
-                            <View className="flex-row flex-wrap" style={{ gap: 10 }}>
-                                {timeSlots.map((time) => (
-                                    <TouchableOpacity
-                                        key={time}
-                                        onPress={() => setSelectedTime(time)}
-                                        className={`rounded-2xl py-3.5 px-5 ${selectedTime === time
-                                            ? 'bg-cyan-400'
-                                            : 'bg-gray-50 border border-gray-200'
-                                            }`}
-                                        style={{
-                                            minWidth: '30%',
-                                            flexGrow: 1,
-                                            flexBasis: 0,
-                                        }}
-                                    >
-                                        <Text
-                                            className={`font-semibold text-center ${selectedTime === time ? 'text-white' : 'text-gray-700'
+                        <View>
+                            <Text className="text-xl font-bold text-gray-900 p-2">Pick time</Text>
+                            <View className="bg-white rounded-3xl p-4 my-4">
+                                <View className="flex-row flex-wrap" style={{ gap: 10 }}>
+                                    {timeSlots.map((time, index) => (
+                                        <TouchableOpacity
+                                            key={index}
+                                            onPress={() => setSelectedTime(time)}
+                                            className={`rounded-3xl my-2 py-4 px-5 ${selectedTime === time
+                                                ? 'bg-primary'
+                                                : 'bg-gray-50 border border-gray-200'
                                                 }`}
+                                            style={{
+                                                minWidth: '30%',
+                                                flexGrow: 1,
+                                                flexBasis: 0,
+                                            }}
                                         >
-                                            {time}
-                                        </Text>
-                                    </TouchableOpacity>
-                                ))}
+                                            <Text
+                                                className={`font-bold text-center ${selectedTime === time ? 'text-white' : 'text-gray-700'
+                                                    }`}
+                                            >
+                                                {time}
+                                            </Text>
+                                        </TouchableOpacity>
+                                    ))}
+                                </View>
                             </View>
                         </View>
+
                     </View>
 
-                    {/* Selected Info Card */}
-                    <View className="mt-6 bg-cyan-50 rounded-2xl p-4 border border-cyan-100">
-                        <Text className="text-sm font-semibold text-cyan-900 mb-2">
-                            Selected Schedule
-                        </Text>
-                        <View className="flex-row items-center">
-                            <Ionicons name="calendar-outline" size={18} color="#06B6D4" />
-                            <Text className="text-gray-700 ml-2 flex-1">
-                                {new Date(selectedDate).toLocaleDateString('en-US', {
-                                    weekday: 'long',
-                                    year: 'numeric',
-                                    month: 'long',
-                                    day: 'numeric',
-                                })}
-                            </Text>
-                        </View>
-                        <View className="flex-row items-center mt-2">
-                            <Ionicons name="time-outline" size={18} color="#06B6D4" />
-                            <Text className="text-gray-700 ml-2">{selectedTime}</Text>
-                        </View>
-                    </View>
                 </View>
             </ScrollView>
 
-            {/* Fixed Bottom Button */}
-            <View className="absolute bottom-0 left-0 right-0 px-5 py-4 bg-white border-t border-gray-100">
+            <View className=" px-5 py-4 ">
                 <TouchableOpacity
-                    onPress={handleProceed}
-                    className="bg-cyan-400 rounded-xl py-4 items-center active:bg-cyan-500"
+                    onPress={() => { router.navigate('/Services/LocationScreen') }}
+                    className="bg-primary rounded-xl py-6 items-center "
                 >
-                    <Text className="text-white text-lg font-semibold">Proceed</Text>
+                    <Text className="text-white text-xl font-bold">Proceed</Text>
                 </TouchableOpacity>
             </View>
         </SafeAreaView>

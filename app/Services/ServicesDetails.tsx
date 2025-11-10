@@ -1,6 +1,7 @@
 import { images } from '@/constants'
 import { FontAwesome, FontAwesome6 } from '@expo/vector-icons'
 import { router } from 'expo-router'
+import { StatusBar } from 'expo-status-bar'
 import React, { useState } from 'react'
 import { Dimensions, Image, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 
@@ -26,7 +27,8 @@ const ServicesDetails = () => {
 
   return (
     <View className='flex-1 bg-white'>
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <StatusBar style='light' />
+
         <View className='relative'>
           <View>
             <ScrollView
@@ -59,6 +61,8 @@ const ServicesDetails = () => {
               ))}
             </View>
           </View>
+
+
           <View className='absolute top-0 left-0 right-0 pt-12 px-6 pb-4'>
             <View className='flex-row items-center gap-4'>
               <TouchableOpacity onPress={() => router.back()}>
@@ -67,7 +71,8 @@ const ServicesDetails = () => {
               <Text className='text-xl font-semibold text-white'>Services Details</Text>
             </View>
           </View>
-        </View>
+      </View>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View className="px-6 py-5">
           <View className="flex-row justify-between items-center mb-3">
             <Text className="text-2xl font-bold text-gray-900">Packing</Text>
