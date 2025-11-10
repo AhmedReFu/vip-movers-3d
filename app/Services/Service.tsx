@@ -1,7 +1,6 @@
 import React from 'react'
 import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { ArrowLeft, LucideIcon } from 'lucide-react-native'
 import { images } from '@/constants';
 import TopBar from '@/components/TopBar';
 

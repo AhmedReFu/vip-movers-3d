@@ -3,6 +3,7 @@ import ServicesArea from '@/components/ServicesArea';
 import { images } from '@/constants';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { router } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useRef } from 'react';
 
 import { Alert, Animated, Easing, Image, Linking, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
@@ -48,6 +49,7 @@ const Home = () => {
   return (
 
     <SafeAreaProvider>
+      <StatusBar style='auto' />
       <SafeAreaView style={{ flex: 1, backgroundColor: "#00D2FF" }}>
         <View className='flex-1 bg-[#00D2FF] '>
           <View className='px-6'>
