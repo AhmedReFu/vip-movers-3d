@@ -1,68 +1,72 @@
-import { images } from '@/constants'
 import React from 'react'
-import { Image, Text, View } from 'react-native'
+import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import TopBar from '../../components/TopBar'
+import { ArrowLeft, LucideIcon } from 'lucide-react-native'
+import { images } from '@/constants';
+import TopBar from '@/components/TopBar';
 
-const Services = () => {
-    return (
-        <SafeAreaView className='flex-1 bg-primary'>
-            <View className='flex-1 bg-white py-4 px-6'>
-                <View className='flex-row items-start'>
-                    <TopBar />
-                    <View className='ml-6'>
-                        <Text className='text-3xl font-bold'>All Services</Text>
-                    </View>
-                </View>
-                <View className='flex-row flex-wrap gap-6 my-10'>
-                    <View className='items-center w-32 h-32'>
-                        <Image source={images.packing} className='size-28' resizeMode='cover' />
-                        <Text>Packing</Text>
-                    </View>
-                    <View className='items-center w-32 h-32 '>
-                        <Image source={images.loading} className='size-28' resizeMode='cover' />
-                        <Text>Loading</Text>
-                    </View>
-                    <View className='items-center w-32 h-32 '>
-                        <Image source={images.unloading} className='size-28' resizeMode='cover' />
-                        <Text>Unloading</Text>
-                    </View>
-                    <View className='items-center w-32 h-32 '>
-                        <Image source={images.deliveryTruckIcon} className='size-28' resizeMode='cover' />
-                        <Text>Delivery</Text>
-                    </View>
-                    <View className='items-center w-32 h-32 '>
-                        <Image source={images.removeIcon} className='size-28' resizeMode='cover' />
-                        <Text>Junk Removal</Text>
-                    </View>
-                    <View className='items-center w-32 h-32 '>
-                        <Image source={images.labourIcon} className='size-28' resizeMode='cover' />
-                        <Text>Labour Service</Text>
-                    </View>
-                    <View className='items-center w-32 h-32 '>
-                        <Image source={images.cleaning} className='size-24 my-4' resizeMode='contain' />
-                        <Text>Cleaning</Text>
-                    </View>
-                    <View className='items-center w-32 h-32 '>
-                        <Image source={images.labourTruck} className='size-24 my-4' resizeMode='contain' />
-                        <Text>Labor & Truck</Text>
-                    </View>
-                    <View className='items-center w-32 h-32 '>
-                        <Image source={images.longDistance} className='size-24 my-4' resizeMode='contain' />
-                        <Text>Long Distance</Text>
-                    </View>
-                    <View className='items-center w-32 h-32 '>
-                        <Image source={images.piano} className='size-24 my-4' resizeMode='contain' />
-                        <Text>Piano</Text>
-                    </View>
-                    <View className='items-center w-32 h-32 my-2'>
-                        <Image source={images.safe} className='size-24 my-4' resizeMode='contain' />
-                        <Text>Safe</Text>
-                    </View>
-                </View>
-            </View>
-        </SafeAreaView>
-    )
+// Service icons
+
+
+interface ServiceItemProps {
+  icon: any;
+  label: string
+  bgColor: string
+}
+
+interface Service {
+  icon: any
+  label: string
+  bgColor: string
+}
+
+const ServiceItem: React.FC<ServiceItemProps> = ({ icon, label, bgColor }) => (
+  <TouchableOpacity className="items-center mb-8 w-1/3">
+    <View className={`w-20 h-20 rounded-full items-center justify-center ${bgColor} mb-2`}>
+      <Image source={icon} />
+    </View>
+    <Text className="text-sm text-gray-800 text-center font-medium px-1">
+      {label}
+    </Text>
+  </TouchableOpacity>
+)
+
+const Services: React.FC = () => {
+  const services: Service[] = [
+    { icon: images.packing, label: 'Packing', bgColor: 'bg-orange-50' },
+    { icon: images.loading, label: 'Loading', bgColor: 'bg-purple-50' },
+  ]
+
+  return (
+    <SafeAreaView className="flex-1 bg-white">
+      <View className="flex-1 bg-white">
+        {/* Header */}
+        <View className='flex-row items-start py-4 px-6'>
+          <TopBar />
+          <View className='ml-6'>
+            <Text className='text-3xl font-bold'>All Services</Text>
+          </View>
+        </View>
+
+        {/* Services Grid */}
+        <ScrollView
+          className="flex-1 px-6 pt-6"
+          showsVerticalScrollIndicator={false}
+        >
+          <View className="flex-row flex-wrap pb-8">
+            {services.map((service, index) => (
+              <ServiceItem
+                key={index}
+                icon={service.icon}
+                label={service.label}
+                bgColor={service.bgColor}
+              />
+            ))}
+          </View>
+        </ScrollView>
+      </View>
+    </SafeAreaView>
+  )
 }
 
 export default Services
