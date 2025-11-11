@@ -1,208 +1,167 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Ionicons } from '@expo/vector-icons';
-import MapView, { Marker, Polyline } from 'react-native-maps';
+import TopBar from '@/components/TopBar'
+import { images } from '@/constants'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
+import Ionicons from '@expo/vector-icons/Ionicons'
+import MaterialIcons from '@expo/vector-icons/MaterialIcons'
+import * as ExpoLocation from 'expo-location'
+import { router } from 'expo-router'
+import { StatusBar } from 'expo-status-bar'
+import React, { useEffect, useState } from 'react'
+import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native'
+import MapView, { Marker, Polyline } from 'react-native-maps'
 
-const LocationScreen = () => {
-    const [selectedVehicle, setSelectedVehicle] = useState<string>('Mini Truck');
+const trucks = [
+    { id: 1, name: 'Mini Truck', ton: '1.8 Ton', image: images.truck1 },
+    { id: 2, name: 'Pickup', ton: '1.2 Ton', image: images.car },
+    { id: 3, name: 'Large Truck', ton: '5 Ton', image: images.truck2 },
+]
 
-    const pickupLocation = {
-        latitude: 37.78825,
-        longitude: -122.4324,
-        address: '2045 Lodgeville Road, Eagan...'
-    };
+// Define the two locations
+const pickupLocation = {
+    latitude: 44.8041,
+    longitude: -93.1669,
+    address: '2045 Lodgeville Road, Eagan'
+}
 
-    const dropoffLocation = {
-        latitude: 37.79825,
-        longitude: -122.4424,
-        address: '3329 Joyce Stree'
-    };
+const dropoffLocation = {
+    latitude: 44.9537,
+    longitude: -93.0900,
+    address: '3329 Joyce Street'
+}
 
-    const vehicles = [
-        { name: 'Mini Truck', capacity: '1.8 Ton', icon: '🚐' },
-        { name: 'Pickup', capacity: '1.2Ton', icon: '🚙' },
-        { name: 'Large Truck', capacity: '5 Ton', icon: '🚚' },
-    ];
+const Location = () => {
+    const [location, setLocation] = useState<ExpoLocation.LocationObject | null>(null)
+    const [errorMsg, setErrorMsg] = useState<string | null>(null)
+    const [selectedTruck, setSelectedTruck] = useState<number>(1)
 
-    const handleBack = () => {
-        // Use your navigation method here
-        // Option 1: expo-router
-        // router.back();
+    const now = new Date()
+    const dayName = new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(now)
+    const fullDate = new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' }).format(now)
+    const time = new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit', hour12: true }).format(now)
 
-        // Option 2: React Navigation
-        // navigation.goBack();
+    useEffect(() => {
+        (async () => {
+            let { status } = await ExpoLocation.requestForegroundPermissionsAsync()
+            if (status !== 'granted') {
+                setErrorMsg('Permission denied')
+                return
+            }
+            const loc = await ExpoLocation.getCurrentPositionAsync({})
+            setLocation(loc)
+        })()
+    }, [])
 
-        console.log('Go back');
-    };
+    // Calculate the center point between the two locations
+    const centerLatitude = (pickupLocation.latitude + dropoffLocation.latitude) / 2
+    const centerLongitude = (pickupLocation.longitude + dropoffLocation.longitude) / 2
 
-    const handleConfirm = () => {
-        console.log('Selected Vehicle:', selectedVehicle);
-        console.log('Pickup:', pickupLocation.address);
-        console.log('Dropoff:', dropoffLocation.address);
-
-        // Navigate to next screen
-        // router.push('/confirmation');
-        // or
-        // navigation.navigate('Confirmation');
-    };
+    // Calculate delta to show both points
+    const latitudeDelta = Math.abs(pickupLocation.latitude - dropoffLocation.latitude) * 2
+    const longitudeDelta = Math.abs(pickupLocation.longitude - dropoffLocation.longitude) * 2
 
     return (
-        <SafeAreaView className="flex-1 bg-white">
-            {/* Header */}
-            <View className="flex-row items-center justify-between px-5 py-3 bg-white">
-                <TouchableOpacity onPress={handleBack}>
-                    <Ionicons name="arrow-back" size={24} color="black" />
-                </TouchableOpacity>
-                <View className="flex-1 ml-4">
-                    <Text className="text-lg font-semibold text-gray-900">Friday, May 11, 2021</Text>
-                    <Text className="text-sm text-gray-500">8:00 pm</Text>
+        <View className="flex-1 bg-white">
+            <StatusBar style="dark" />
+            <View className="px-6 pt-12 pb-4">
+                <View className="flex-row items-center">
+                    <TopBar />
+                    <View className="ml-4">
+                        <Text className="text-2xl font-bold">{`${dayName}, ${fullDate}`}</Text>
+                    </View>
                 </View>
+                <Text className="text-xl text-center font-semibold mt-2">{time}</Text>
             </View>
-
-            {/* Map Section */}
-            <View className="h-80 bg-gray-100 relative">
+            <View className="flex-1 rounded-t-3xl overflow-hidden">
                 <MapView
-                    style={{ flex: 1 }}
+                    style={{ flex: 1, }}
                     initialRegion={{
-                        latitude: 37.79025,
-                        longitude: -122.4374,
-                        latitudeDelta: 0.02,
-                        longitudeDelta: 0.02,
+                        latitude: centerLatitude,
+                        longitude: centerLongitude,
+                        latitudeDelta: latitudeDelta,
+                        longitudeDelta: longitudeDelta,
                     }}
+                    showsUserLocation={true}
+                    showsMyLocationButton={true}
                 >
-                    {/* Pickup Marker */}
+                    {/* Pickup Location Marker */}
                     <Marker
                         coordinate={{
                             latitude: pickupLocation.latitude,
-                            longitude: pickupLocation.longitude
+                            longitude: pickupLocation.longitude,
                         }}
-                    >
-                        <View className="bg-cyan-400 rounded-full p-2">
-                            <Ionicons name="location" size={20} color="white" />
-                        </View>
-                    </Marker>
+                        title="Pickup Location"
+                        description={pickupLocation.address}
+                        pinColor="#1B1D21"
+                    />
 
-                    {/* Dropoff Marker */}
+                    {/* Dropoff Location Marker */}
                     <Marker
                         coordinate={{
                             latitude: dropoffLocation.latitude,
-                            longitude: dropoffLocation.longitude
+                            longitude: dropoffLocation.longitude,
                         }}
-                    >
-                        <View className="bg-cyan-400 rounded-full p-2">
-                            <Ionicons name="location" size={20} color="white" />
-                        </View>
-                    </Marker>
+                        title="Dropoff Location"
+                        description={dropoffLocation.address}
+                        pinColor="#00D2FF"
+                    />
 
-                    {/* Route Line */}
+                    {/* Route Line between locations */}
                     <Polyline
                         coordinates={[
                             { latitude: pickupLocation.latitude, longitude: pickupLocation.longitude },
-                            { latitude: 37.79025, longitude: -122.4374 },
-                            { latitude: dropoffLocation.latitude, longitude: dropoffLocation.longitude }
+                            { latitude: dropoffLocation.latitude, longitude: dropoffLocation.longitude },
                         ]}
-                        strokeColor="#8B5CF6"
+                        strokeColor="#00D2FF"
                         strokeWidth={4}
+
                     />
                 </MapView>
-
-                {/* Recenter Button */}
-                <TouchableOpacity
-                    className="absolute bottom-4 right-4 bg-white rounded-full p-3 shadow-lg"
-                    style={{
-                        shadowColor: '#000',
-                        shadowOffset: { width: 0, height: 2 },
-                        shadowOpacity: 0.25,
-                        shadowRadius: 3.84,
-                        elevation: 5,
-                    }}
-                >
-                    <Ionicons name="locate" size={24} color="black" />
-                </TouchableOpacity>
-
-                {/* Address Label on Map */}
-                <View className="absolute bottom-4 left-4 bg-cyan-400 rounded-full px-4 py-2 flex-row items-center">
-                    <Ionicons name="location" size={16} color="white" className="mr-2" />
-                    <Text className="text-white font-medium text-sm">2045 Lodgeville Street, Eagan</Text>
-                </View>
             </View>
+            <View className="bg-white absolute bottom-0 w-full rounded-t-3xl p-5 shadow-lg">
+                <View className='flex-row items-center gap-4'>
+                    <MaterialIcons name="my-location" size={28} color="black" />
+                    <Text className="text-xl font-bold">2045 Lodgeville Road, Eagan</Text>
+                    <Ionicons name="close-outline" size={28} color="black" />
+                </View>
+                <View className='flex-row gap-8 my-2 items-center'>
+                    <View className='ml-3'>
+                        <View className='rounded-full m-[1px] h-1 w-1 bg-primary' />
+                        <View className='rounded-full m-[1px] h-1 w-1 bg-primary' />
+                        <View className='rounded-full m-[1px] h-1 w-1 bg-primary' />
+                        <View className='rounded-full m-[1px] h-1 w-1 bg-primary' />
+                        <View className='rounded-full m-[1px] h-1 w-1 bg-primary' />
+                    </View>
+                    <View className='bg-gray-100 h-1 w-full' />
+                </View>
+                <View className="mb-2 flex-row gap-4">
+                    <MaterialCommunityIcons name="map-marker-star" size={32} color="#00D2FF" />
+                    <Text className="text-xl">3329 Joyce Street</Text>
+                </View>
 
-            {/* Address Details */}
-            <View className="px-5 py-4 border-b border-gray-100">
-                {/* Pickup Address */}
-                <View className="flex-row items-start mb-3">
-                    <View className="w-6 h-6 rounded-full border-2 border-gray-400 mr-3 mt-1" />
-                    <View className="flex-1 flex-row items-center justify-between">
-                        <Text className="text-gray-900 font-medium flex-1">
-                            2045 Lodgeville Road, Eagan...
-                        </Text>
-                        <TouchableOpacity>
-                            <Ionicons name="close" size={20} color="gray" />
+                <ScrollView horizontal showsHorizontalScrollIndicator={false} className="mb-4">
+                    {trucks.map((truck) => (
+                        <TouchableOpacity
+                            key={truck.id}
+                            onPress={() => setSelectedTruck(truck.id)}
+                            className={`p-3 mr-3 rounded-2xl border ${selectedTruck === truck.id ? 'border-primary bg-[#1B1D21]' : 'border-gray-200'
+                                }`}
+                        >
+                            <Image source={truck.image} className="w-32 h-24 mb-2" resizeMode="contain" />
+                            <View className='bg-gray-100 h-[2px] w-full my-2' />
+                            <Text className={`text-center text-lg ${selectedTruck === truck.id ? 'text-white' : 'text-gray-500'}`}>{truck.name}</Text>
+                            <Text className={`text-center text-lg ${selectedTruck === truck.id ? 'text-white' : 'text-gray-500'}`}>~ {truck.ton}</Text>
                         </TouchableOpacity>
-                    </View>
-                </View>
-
-                {/* Dotted Line */}
-                <View className="ml-3 border-l-2 border-dotted border-gray-300 h-4" />
-
-                {/* Dropoff Address */}
-                <View className="flex-row items-start">
-                    <View className="mr-3 mt-1">
-                        <Ionicons name="location" size={24} color="#06B6D4" />
-                    </View>
-                    <Text className="text-gray-900 font-medium flex-1">3329 Joyce Stree</Text>
-                </View>
-            </View>
-
-            {/* Vehicle Selection */}
-            <View className="px-5 py-4 flex-1">
-                <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-                    <View className="flex-row" style={{ gap: 12 }}>
-                        {vehicles.map((vehicle, index) => (
-                            <TouchableOpacity
-                                key={index}
-                                onPress={() => setSelectedVehicle(vehicle.name)}
-                                className={`rounded-2xl p-4 items-center justify-center ${selectedVehicle === vehicle.name
-                                        ? 'bg-gray-900'
-                                        : 'bg-gray-100'
-                                    }`}
-                                style={{ width: 100 }}
-                            >
-                                <Text className="text-4xl mb-2">{vehicle.icon}</Text>
-                                <Text
-                                    className={`font-semibold text-sm ${selectedVehicle === vehicle.name
-                                            ? 'text-white'
-                                            : 'text-gray-900'
-                                        }`}
-                                >
-                                    {vehicle.name}
-                                </Text>
-                                <Text
-                                    className={`text-xs ${selectedVehicle === vehicle.name
-                                            ? 'text-gray-300'
-                                            : 'text-gray-500'
-                                        }`}
-                                >
-                                    - {vehicle.capacity}
-                                </Text>
-                            </TouchableOpacity>
-                        ))}
-                    </View>
+                    ))}
                 </ScrollView>
-            </View>
 
-            {/* Confirm Button */}
-            <View className="px-5 py-4 bg-white border-t border-gray-100">
                 <TouchableOpacity
-                    onPress={handleConfirm}
-                    className="bg-cyan-400 rounded-2xl py-4 items-center active:bg-cyan-500"
-                >
-                    <Text className="text-white text-lg font-semibold">Confirm</Text>
+                    onPress={() => router.navigate('/Services/OrderDetails')}
+                    className="bg-primary my-2 p-6 rounded-2xl">
+                    <Text className="text-white text-center font-bold text-xl">Confirm</Text>
                 </TouchableOpacity>
             </View>
-        </SafeAreaView>
-    );
-};
+        </View>
+    )
+}
 
-export default LocationScreen;
+export default Location

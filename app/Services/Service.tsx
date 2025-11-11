@@ -39,15 +39,12 @@ const Services: React.FC = () => {
   return (
     <SafeAreaView className="flex-1 bg-white">
       <View className="flex-1 bg-white">
-        {/* Header */}
         <View className='flex-row items-start py-4 px-6'>
           <TopBar />
           <View className='ml-6'>
             <Text className='text-3xl font-bold'>All Services</Text>
           </View>
         </View>
-
-        {/* Services Grid */}
         <ScrollView
           className="flex-1 px-6 pt-6"
           showsVerticalScrollIndicator={false}

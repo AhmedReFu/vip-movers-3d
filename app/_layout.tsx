@@ -17,8 +17,8 @@ export default function RootLayout() {
   return (
 
     <>
-      <Stack screenOptions={{ headerShown: false, statusBarStyle: "dark", statusBarHidden: false }}>
-
+      <Stack screenOptions={{ headerShown: false, statusBarHidden: false }}>
+        <Stack.Screen name="index" />
       </Stack>
     </>
 
