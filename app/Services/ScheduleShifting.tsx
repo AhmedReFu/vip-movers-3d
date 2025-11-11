@@ -116,7 +116,7 @@ const ScheduleShifting = () => {
 
             <View className=" px-5 py-4 ">
                 <TouchableOpacity
-                    onPress={() => { router.navigate('/Services/LocationScreen') }}
+                    onPress={() => { router.navigate('/Services/Location') }}
                     className="bg-primary rounded-xl py-6 items-center "
                 >
                     <Text className="text-white text-xl font-bold">Proceed</Text>
