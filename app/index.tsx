@@ -1,12 +1,11 @@
 import { images } from "@/constants";
-import { router, useRouter } from "expo-router";
+import { router, Tabs, useRouter } from "expo-router";
 import { useEffect } from "react";
 import { Image, Text, View } from "react-native";
 import Spinner from "../components/Spinner";
 import { useNavigation } from "@react-navigation/native";
 
 export default function Index() {
-  const navigator = useNavigation();
 
   useEffect(() => {
     const timer = setTimeout(() => {

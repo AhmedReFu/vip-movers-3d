@@ -1,5 +1,6 @@
 import ahmedReFat from "@/assets/images/Ahmed-ReFat.jpg";
 import BrevaryCountry from "@/assets/images/BrevaryCountry.jpg";
+import car from "@/assets/images/car-1.png";
 import cardBackground from "@/assets/images/cardBackground.png";
 import Category from "@/assets/images/categroy.png";
 import cleaning from "@/assets/images/cleaning.png";
@@ -38,6 +39,8 @@ import services3 from "@/assets/images/services3.png";
 import services4 from "@/assets/images/services4.png";
 import StLuice from "@/assets/images/StLuice.jpg";
 import successIcon from "@/assets/images/successicon.png";
+import truck1 from "@/assets/images/truck-1.png";
+import truck2 from "@/assets/images/truck-3.png";
 import unloading from "@/assets/images/unloading.png";
 import Wallet from "@/assets/images/wallet.png";
 
@@ -46,14 +49,11 @@ export const images = {
   Wallet,
   Offer,
   HomeCard,
-
+  truck1,
+  truck2,
+  car,
   Flag,
-  Wallet,
   Category,
-  Offer,
-
-  Category,
-
   successIcon,
   BrevaryCountry,
   IndianRivarArea,

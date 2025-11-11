@@ -18,7 +18,7 @@ const SignUp = () => {
           </View>
           <View className='items-start'>
             <Text className='text-3xl font-semibold '>Sign Up</Text>
-            <Text className='text-lg font-light leading-10'>Hello! Let’s join with us</Text>
+            <Text className='text-lg font-light leading-10'>Hello! Let's join with us</Text>
           </View>
           <View className="flex-1 gap-4 py-5 ">
             <View className="border rounded-xl border-gray-200 w-full pl-4 flex-row items-center justify-items-center">

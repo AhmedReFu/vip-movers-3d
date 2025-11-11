@@ -49,7 +49,7 @@ const Home = () => {
   return (
 
     <SafeAreaProvider>
-      <StatusBar style='auto' />
+      <StatusBar style='light' />
       <SafeAreaView style={{ flex: 1, backgroundColor: "#00D2FF" }}>
         <View className='flex-1 bg-[#00D2FF] '>
           <View className='px-6'>
@@ -141,13 +141,7 @@ const Home = () => {
                       </Text>
                     </TouchableOpacity>
                   </View>
-                  {/*<View className='absolute right-0 left-56 bottom-2 w-56 h-56'>
-                    <Image
-                      source={images.movingTruck}
-                      className='w-full h-full'
-                      resizeMode="contain"
-                    />
-                  </View>*/}
+
                 </View>
                 <TouchableOpacity
                   onPress={() => router.navigate("/Donation/Donation")}

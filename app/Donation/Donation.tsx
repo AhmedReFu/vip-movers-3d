@@ -8,6 +8,7 @@ import { Alert, ScrollView, Text, TextInput, TouchableOpacity, View } from "reac
 import Modal from "react-native-modal";
 import { SafeAreaView } from "react-native-safe-area-context";
 
+
 type ImageAsset = ImagePicker.ImagePickerAsset;
 
 interface DonationProps {
